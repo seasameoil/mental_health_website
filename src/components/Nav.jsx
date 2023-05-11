@@ -9,6 +9,18 @@ const Nav = () => {
       </div>
       <div>
         <Link to={"/news"}>학회소식</Link>
+        <ul>
+          <Link to={"/news/sub01"}>공지.뉴스</Link>
+          <ul>
+            <Link>학회 공지사항</Link>
+            <Link>관련 공지사항</Link>
+            <Link>보도자료</Link>
+            <Link>뉴스포털</Link>
+          </ul>
+          <Link to={"/news/sub02"}>연간일정</Link>
+          <Link to={"/news/sub03"}>홍보게시판</Link>
+          <Link to={"/news/sub04"}>구인게시판</Link>
+        </ul>
       </div>
       <div>
         <Link to={"/infomation"}>정보광장</Link>

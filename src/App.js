@@ -7,6 +7,10 @@ import Information from "./Pages/Information";
 import Education from "./Pages/Education";
 import Journal from "./Pages/Journal";
 import Nonmember from "./Pages/Nonmember";
+import Sub01 from "./Pages/spec_news/Sub01";
+import Sub02 from "./Pages/spec_news/Sub02";
+import Sub03 from "./Pages/spec_news/Sub03";
+import Sub04 from "./Pages/spec_news/Sub04";
 
 function App() {
   return (
@@ -20,6 +24,12 @@ function App() {
         <Route path="/non-member" element={<Nonmember />} />
       </Routes>
 
+      <Routes>
+        <Route path="/news/sub01" element={<Sub01 />} />
+        <Route path="/news/sub02" element={<Sub02 />} />
+        <Route path="/news/sub03" element={<Sub03 />} />
+        <Route path="/news/sub04" element={<Sub04 />} />
+      </Routes>
       <Nav />
     </div>
   );

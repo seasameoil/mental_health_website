@@ -1,0 +1,17 @@
+.sub_top {
+    padding: 0 60px;
+    background-color: yellow;
+}
+
+.sub_top .top_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: green;
+}
+
+.sub_top .top_img .content {
+    display: flex;
+    justify-content: center;
+}

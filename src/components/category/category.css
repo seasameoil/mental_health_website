@@ -1,0 +1,19 @@
+.category {
+    background-color: rgb(246, 220, 50);
+    width: 300px;
+    padding: 50px 70px;
+}
+
+.category .title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.category a {
+    text-decoration: none;
+    color: black;
+}
+
+.category .sub-category {
+    list-style: none;
+}

@@ -1,0 +1,24 @@
+.sub01_1_intro a {
+    text-decoration: none;
+    color: black;
+}
+
+.sub01_1_intro .content_img {
+    height: 194px;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 128, 252);
+}
+
+.sub01_1_intro .intro {
+    padding: 20px 0;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    color: #307033;
+    font-size: 1.2em; 
+    font-weight: 600;
+    font-style: oblique;
+}

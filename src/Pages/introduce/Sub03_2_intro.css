@@ -1,0 +1,35 @@
+.sub03_2_intro .table_3_2 {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: white;
+  }
+  
+.sub03_2_intro  .table_3_2 th, .table_3_2 td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+.sub03_2_intro  .table_3_2 th {
+    border: 2px solid #cbcbcb;
+  }
+
+.sub03_2_intro th:first-child, th:nth-child(3) {
+    width: 30%;
+  }
+  
+.sub03_2_intro  .table_3_2 td {
+    border-bottom: 2px solid #cbcbcb;
+  }
+  
+.sub03_2_intro .table_3_2 tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sub03_2_intro .table_3_2 tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+  
+  

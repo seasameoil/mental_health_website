@@ -14,6 +14,8 @@ import Sub04 from "./Pages/spec_news/Sub04";
 function App() {
   return (
     <div className="App">
+      <Nav />
+      
       <Routes>
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/news" element={<News />} />
@@ -28,7 +30,7 @@ function App() {
         <Route path="/news/sub03" element={<Sub03 />} />
         <Route path="/news/sub04" element={<Sub04 />} />
       </Routes>
-      <Nav />
+      
     </div>
   );
 }

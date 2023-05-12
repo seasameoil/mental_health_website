@@ -12,7 +12,7 @@ const Nav = () => {
       </Link>
       
       <div>
-        <Link to={"/introduce"}>학회소개</Link>
+        <Link to={"/introduce/sub01/1"}>학회소개</Link>
         {/*
         <ul>
           <Link to={"/introduce/sub01"}>소개</Link>

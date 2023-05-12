@@ -31,9 +31,6 @@ const Nav = () => {
       <div>
         <Link to={"/journal"}>학회지</Link>
       </div>
-      <div>
-        <Link to={"/non-member"}>비회원신청</Link>
-      </div>
     </div>
   );
 };

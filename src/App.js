@@ -6,7 +6,6 @@ import News from "./Pages/News";
 import Information from "./Pages/Information";
 import Education from "./Pages/Education";
 import Journal from "./Pages/Journal";
-import Nonmember from "./Pages/Nonmember";
 import Sub01 from "./Pages/spec_news/Sub01";
 import Sub02 from "./Pages/spec_news/Sub02";
 import Sub03 from "./Pages/spec_news/Sub03";
@@ -21,7 +20,6 @@ function App() {
         <Route path="/infomation" element={<Information />} />
         <Route path="/edu" element={<Education />} />
         <Route path="/journal" element={<Journal />} />
-        <Route path="/non-member" element={<Nonmember />} />
       </Routes>
 
       <Routes>

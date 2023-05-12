@@ -19,13 +19,13 @@ export default function Category() {
                 </ul>
 
                 <ul>
-                    <div>인사말</div>
+                    <Link to={"/introduce/sub02"}>
+                        <div>인사말</div>
+                    </Link>
                 </ul>
 
                 <ul>
-                    <Link to={"/introduce/sub03/1"}>
-                        <div>학회발자취</div>
-                    </Link>
+                    <div>학회발자취</div>
                     <div className='sub-category-box'>
                         <Link to={"/introduce/sub03/1"}>
                             <li className='sub-category'>연혁</li>

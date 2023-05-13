@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Router, Routes } from "react-router-dom";
+
 import Nav from "./components/Nav";
 import Footer from "./components/footer/footer";
 import Introduce from "./Pages/introduce/Sub01_1_intro";
@@ -62,15 +63,7 @@ function App() {
         <Route path="/introduce/sub05/7" element={<Sub05_7_intro />} />
       </Routes>
 
-      {/*
-      <Routes>
-        <Route path="/news/sub01" element={<Sub01 />} />
-        <Route path="/news/sub02" element={<Sub02_ />} />
-        <Route path="/news/sub03" element={<Sub03 />} />
-        <Route path="/news/sub04" element={<Sub04 />} />
-      </Routes>
-  */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

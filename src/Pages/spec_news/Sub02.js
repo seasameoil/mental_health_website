@@ -1,9 +1,15 @@
 import React from "react";
+import SubTop from "../../components/sub_top/sub_top_news";
+import Category from "../../components/category/category_news";
 
-class Sub02 extends React.Component {
-  render() {
-    return <h1>연간일정</h1>;
-  }
+export default function Sub02() {
+  return (
+    <div>
+      <SubTop />
+      <div style={{ display: "flex" }}>
+        <Category />
+      </div>
+      <h1>연간일정</h1>
+    </div>
+  );
 }
-
-export default Sub02;

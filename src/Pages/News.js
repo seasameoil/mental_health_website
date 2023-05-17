@@ -1,6 +1,9 @@
 import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../Firebase";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+
+import SubTop from "../components/sub_top/sub_top";
+import Category from "../components/category/category_news";
 
 export default function News() {
   const [users, setUsers] = useState([]);
@@ -37,8 +40,14 @@ export default function News() {
   return (
     <div>
       <h1>학회소식 페이지</h1>
+      <SubTop />
+      <div style={{ display: "flex" }}>
+        <Category />
+      </div>
       <table>
-        <thead>
+        <thead
+          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+        >
           <th>번호</th>
           <th>분류</th>
           <th>제목</th>

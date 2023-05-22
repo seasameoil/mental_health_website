@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Category() {
   return (
     <div className="category">
-      <div className="title">학회소식</div>
+      <div className="title">협회소식</div>
 
       <ul>
         <div>공지.뉴스</div>

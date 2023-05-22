@@ -9,7 +9,7 @@ export default function SubTop() {
             ABOUT
           </div>
           <div className="content" style={{ fontSize: "3rem" }}>
-            학회소식
+            협회소식
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Router, Routes } from "react-router-dom";
+
 import Nav from "./components/Nav";
 import Footer from "./components/footer/footer";
 import Introduce from "./Pages/introduce/Sub01_1_intro";
@@ -29,6 +30,13 @@ import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
 import Sub01_1_info from "./Pages/information/Sub01_1_info";
 import Sub02_1_info from "./Pages/information/Sub02_1_info";
 import Sub02_2_info from "./Pages/information/Sub02_2_info";
+
+import Sub01 from "./Pages/spec_news/Sub01";
+import Sub01_1 from "./Pages/spec_news/Sub01_1";
+import Sub01_2 from "./Pages/spec_news/Sub01_2";
+import Sub01_3 from "./Pages/spec_news/Sub01_3";
+import Sub02 from "./Pages/spec_news/Sub02";
+import Sub03 from "./Pages/spec_news/Sub03";
 
 function App() {
   return (
@@ -68,15 +76,7 @@ function App() {
         <Route path="/information/sub02/2" element={<Sub02_2_info />} />
       </Routes>
 
-      {/*
-      <Routes>
-        <Route path="/news/sub01" element={<Sub01 />} />
-        <Route path="/news/sub02" element={<Sub02_ />} />
-        <Route path="/news/sub03" element={<Sub03 />} />
-        <Route path="/news/sub04" element={<Sub04 />} />
-      </Routes>
-  */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-
 .history h2 {
   position: relative;
   font-size: 33px;
@@ -54,9 +47,9 @@
   font-size: 17px;
   color: #000;
   line-height: 29px;
+  list-style: none;
 }
 
 .history li:not(:last-child) {
-  margin-top: 10px;
   margin-bottom: 20px;
 }

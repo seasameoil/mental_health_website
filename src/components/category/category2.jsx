@@ -1,13 +1,23 @@
 import "./category.css";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 
 export default function Category2() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCategory = () => {
+      setIsOpen(!isOpen);
+  };
+
   return (
     <div className="category">
+      <hr></hr>
       <div className="title">협회소식</div>
+      <hr></hr>
 
       <ul>
-        <div>공지.뉴스</div>
+        <div className='subtitle' onClick={toggleCategory}>공지.뉴스</div>
+        {isOpen && 
         <div className="sub-category-box">
           <Link to={"/news"}>
             <li className="sub-category">학회 공지사항</li>
@@ -22,17 +32,18 @@ export default function Category2() {
             <li className="sub-category">뉴스포털</li>
           </Link>
         </div>
+        }
       </ul>
 
       <ul>
         <Link to={"/news/sub02"}>
-          <div>연간일정</div>
+          <div className='subtitle'>연간일정</div>
         </Link>
       </ul>
 
       <ul>
         <Link to={"/news/sub03"}>
-          <li className="sub-category">홍보게시판</li>
+          <div className='subtitle'>홍보게시판</div>
         </Link>
       </ul>
     </div>

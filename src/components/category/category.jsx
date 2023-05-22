@@ -1,14 +1,22 @@
 import './category.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Category() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleCategory = () => {
+        setIsOpen(!isOpen);
+    };
+
     return(
         <div className='category'>
+                <hr></hr>
                 <div className='title'>협회소개</div>
-
+                <hr></hr>
                 <ul>
                     <Link to={"/introduce/sub01/1"}>
-                    <div>소개</div>
+                    <div className='subtitle'>소개</div>
                     </Link>
                     {/*
                     <div className='sub-category-box'>
@@ -23,13 +31,15 @@ export default function Category() {
 
                 <ul>
                     <Link to={"/introduce/sub02"}>
-                        <div>인사말</div>
+                        <div 
+                        className='subtitle'>인사말</div>
                     </Link>
                 </ul>
 
                 <ul>
                     <Link to={"/introduce/sub03/1"}>
-                    <div>연혁</div>
+                    <div 
+                        className='subtitle'>연혁</div>
                     </Link>
                     {/*
                     <div className='sub-category-box'>
@@ -41,7 +51,10 @@ export default function Category() {
                 </ul>
 
                 <ul>
-                    <div>협회 규정</div>
+                    <div onClick={toggleCategory} 
+                    className='subtitle'
+                    >협회 규정</div>
+                    {isOpen && 
                     <div className='sub-category-box'>
                         <Link to={"/introduce/sub04/1"}>
                             <li className='sub-category'>협회규칙(정관)</li>
@@ -49,12 +62,13 @@ export default function Category() {
                         <Link to={"/introduce/sub04/2"}>
                             <li className='sub-category'>윤리규정</li>
                         </Link>
-                    </div>
+                    </div>}
                 </ul>
 
                 <ul>
                     <Link to={"/introduce/sub05/1"}>
-                    <div>조직</div>
+                    <div 
+                        className='subtitle'>조직</div>
                     </Link>
                     {/*
                     <div className='sub-category-box'>

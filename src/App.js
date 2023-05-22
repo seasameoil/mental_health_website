@@ -8,7 +8,7 @@ import News from "./Pages/News";
 import Information from "./Pages/Information";
 import Education from "./Pages/Education";
 import Journal from "./Pages/Journal";
-//(1) 학회 소개
+//(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
 import Sub01_2_intro from "./Pages/introduce/Sub01_2_intro";
 import Sub02_intro from "./Pages/introduce/Sub02_intro";
@@ -25,6 +25,11 @@ import Sub05_4_intro from "./Pages/introduce/Sub05_4_intro";
 import Sub05_5_intro from "./Pages/introduce/Sub05_5_intro";
 import Sub05_6_intro from "./Pages/introduce/Sub05_6_intro";
 import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
+//(2)협회소식
+//(3)정보광장
+import Sub01_1_info from "./Pages/information/Sub01_1_info";
+import Sub02_1_info from "./Pages/information/Sub02_1_info";
+import Sub02_2_info from "./Pages/information/Sub02_2_info";
 
 import Sub01 from "./Pages/spec_news/Sub01";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
@@ -66,12 +71,9 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path="/news" element={<Sub01 />} />
-        <Route path="/news/sub01/1" element={<Sub01_1 />} />
-        <Route path="/news/sub01/2" element={<Sub01_2 />} />
-        <Route path="/news/sub01/3" element={<Sub01_3 />} />
-        <Route path="/news/sub02" element={<Sub02 />} />
-        <Route path="/news/sub03" element={<Sub03 />} />
+        <Route path="/information/sub01/1" element={<Sub01_1_info />} />
+        <Route path="/information/sub02/1" element={<Sub02_1_info />} />
+        <Route path="/information/sub02/2" element={<Sub02_2_info />} />
       </Routes>
 
       <Footer />

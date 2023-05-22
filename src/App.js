@@ -3,11 +3,6 @@ import { Route, Router, Routes } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Footer from "./components/footer/footer";
-import Introduce from "./Pages/introduce/Sub01_1_intro";
-import News from "./Pages/News";
-import Information from "./Pages/Information";
-import Education from "./Pages/Education";
-import Journal from "./Pages/Journal";
 //(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
 import Sub01_2_intro from "./Pages/introduce/Sub01_2_intro";
@@ -26,7 +21,7 @@ import Sub05_5_intro from "./Pages/introduce/Sub05_5_intro";
 import Sub05_6_intro from "./Pages/introduce/Sub05_6_intro";
 import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
 //(2)협회소식
-import Sub01 from "./Pages/spec_news/Sub01";
+import News from "./Pages/spec_news/News";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
 import Sub01_2 from "./Pages/spec_news/Sub01_2";
 import Sub01_3 from "./Pages/spec_news/Sub01_3";
@@ -49,14 +44,6 @@ function App() {
       <Nav />
 
       <Routes>
-        <Route path="/introduce" element={<Introduce />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/infomation" element={<Information />} />
-        <Route path="/edu" element={<Education />} />
-        <Route path="/journal" element={<Journal />} />
-      </Routes>
-
-      <Routes>
         <Route path="/introduce/sub01/1" element={<Sub01_1_intro />} />
         <Route path="/introduce/sub01/2" element={<Sub01_2_intro />} />
         <Route path="/introduce/sub02" element={<Sub02_intro />} />
@@ -76,7 +63,7 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path="/news" element={<Sub01 />} />
+        <Route path="/news" element={<News />} />
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
         <Route path="/news/sub01/2" element={<Sub01_2 />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />

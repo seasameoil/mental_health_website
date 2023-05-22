@@ -1,6 +1,6 @@
 import React from "react";
-import SubTop from "../../components/sub_top/sub_top_news";
-import Category from "../../components/category/category_news";
+import SubTop from "../../components/sub_top/sub_top2";
+import Category from "../../components/category/category2";
 
 export default function Sub03() {
   return (

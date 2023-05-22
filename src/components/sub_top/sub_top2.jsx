@@ -1,6 +1,6 @@
 import "./sub_top.css";
 
-export default function SubTop() {
+export default function SubTop2() {
   return (
     <div className="sub_top">
       <div className="top_img">

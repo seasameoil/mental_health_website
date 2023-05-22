@@ -1,7 +1,7 @@
 import "./category.css";
 import { Link } from "react-router-dom";
 
-export default function Category() {
+export default function Category2() {
   return (
     <div className="category">
       <div className="title">협회소식</div>

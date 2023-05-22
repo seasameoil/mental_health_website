@@ -12,7 +12,7 @@ const Nav = () => {
       </Link>
       
       <div>
-        <Link to={"/introduce/sub01/1"}>학회소개</Link>
+        <Link to={"/introduce/sub01/1"}>협회소개</Link>
         {/*
         <ul>
           <Link to={"/introduce/sub01"}>소개</Link>
@@ -49,7 +49,7 @@ const Nav = () => {
       </div>
       
       <div>
-        <Link to={"/news"}>학회소식</Link>
+        <Link to={"/news"}>협회소식</Link>
         {/*
         <ul>
           <Link to={"/news/sub01"}>공지.뉴스</Link>
@@ -72,7 +72,7 @@ const Nav = () => {
         <Link to={"/edu"}>학술행사/교육</Link>
       </div>
       <div>
-        <Link to={"/journal"}>학회지</Link>
+        <Link to={"/journal"}>협회지</Link>
       </div>
     </div>
   );

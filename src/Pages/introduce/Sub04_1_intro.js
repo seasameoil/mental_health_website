@@ -5,30 +5,6 @@ import BrownBar from '../../components/brown_bar/brown_bar';
 import { useState } from 'react';
 
 export default function Sub04_1_intro() {
-    const [showDiv1, setShowDiv1] = useState(true);
-    const [showDiv2, setShowDiv2] = useState(false);
-
-    const div1Style = {
-        backgroundColor: showDiv1 ? "#795548" : "white",
-        color: showDiv1 ? "white" : "black",
-        border: showDiv1 ? "1px solid #a0744f" : "1px solid rgb(77, 77, 77)"
-      };
-    
-    const div2Style = {
-        backgroundColor: showDiv2 ? "#795548" : "white",
-        color: showDiv2 ? "white" : "black",
-        border: showDiv2 ? "1px solid #a0744f" : "1px solid rgb(77, 77, 77)"
-    };
-
-    const handleClickDiv1 = () => {
-        setShowDiv1(true);
-        setShowDiv2(false);
-      };
-
-    const handleClickDiv2 = () => {
-        setShowDiv1(false);
-        setShowDiv2(true);
-    };
 
     return(
         <div className='sub04_1_intro'>
@@ -37,57 +13,93 @@ export default function Sub04_1_intro() {
                 <Category />
                 <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
                     <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
-                        <div className='select_btn' onClick={handleClickDiv1} style={div1Style}>회칙</div>
-                        <div className='select_btn' onClick={handleClickDiv2} style={div2Style}>운영세칙</div>
+                        <div>
+                            <div style={{display: 'flex', backgroundColor: 'white'}}>
+                                <BrownBar />
+                                <h3>사단법인 한국정신건강관리협회 정관 (2022. 12. 21. 제정)</h3>
+                            </div>
+                            
+                            <div className='chapter_box'>
+                                제1장 총칙
+                            </div>
+                            <p>
+                                <strong>제1조(명칭)</strong>
+                                <br></br>
+                                이 법인의 명칭은 “사단법인 한국정신건강관리협회 (이하 "본회" 이라 한다)라 하며 영문표기 "Korea Mental Health Care Association"로 한다.
+                            </p>
+                            <p>
+                                <strong>제2조(소재지)</strong>
+                                <br></br>
+                                본회의 사무소는 경상남도 창원시에 둔다. 단, 필요시 국내 국외에 지부를 둘 수 있다.
+                            </p>
+                            <p>
+                                <strong>제3조(목적)</strong>
+                                <br></br>
+                                본회는 급격한 환경변화로 인해 개인 또는 집단이 겪는 심리적, 정서적, 인성적 스트레스를 해
+                                결하고 도움을 줄 수 있는 사람을 육성함을 목적으로 한다.
+                            </p>
+                            <p>
+                                <strong>제4조(사업)</strong>
+                                <br></br>
+                                본회는 제3조의 목적을 달성하기 위하여 다음의 사업을 한다.
+                                <br></br>
+                                ① NLP 교육 및 인력양성
+                                <br></br>
+                                ② 한국정신건강관리사의 교육 및 인력양성
+                                <br></br>
+                                ③ 멘탈코칭 및 도서해설사 교육 및 인력양성
+                                <br></br>
+                                ④ 위 사업 운영에 필요한 조사연구, 인식제고, 정책 제언 및 제 단체와의 교류
+                                <br></br>
+                                ⑤ 본회의 목정 달성에 적합한 사업 운영 및 기여하는 제 활동 일체
+                            </p>
+
+                            <div className='chapter_box'>
+                                제2장 회원
+                            </div>
+                            <p>
+                                <strong>제5조(회원의 구분)</strong>
+                                <br></br>
+                                ① 본회의 회원은 정회원과 준회원, 일반회원으로 한다
+                                ② 본회의 권리와 의무 및 선거권과 피선거권은 정회원과 준회원에게 있다 전문위원, 일반회원은 권리와 의무 및 선거권과 피선거권을 주어지지 않는다.
+                                ③ 정회원은 본회가 정한 심화 교육과정을 이수하고 연회비를 납부하는 자로 창출, 보호, 활용
+                                을 도모하여 본회의 목적에 따라 활동하는 자로 한다.
+                                ④ 준회원은 본회가 정한 기본 교육과정을 이수하고 연회비를 납부하는 자로 정회원의 자격을
+                                가지지 않고 본회의 목적에 따라 활동하는 자로 한다.
+                                ⑤ 일반회원은 본 회의 홈페이지를 통하여 가입 및 탈퇴를 할 수 있으며 회비 납부 의무는 없
+                                다. 홈페이지를 통하여 정보를 교류할 수 있다.
+                            </p>
+                            <p>
+                                {/*여기서부터 작업(제6조!)*/}
+                                <strong>제2조(소재지)</strong>
+                                <br></br>
+                                본회의 사무소는 경상남도 창원시에 둔다. 단, 필요시 국내 국외에 지부를 둘 수 있다.
+                            </p>
+                            <p>
+                                <strong>제3조(목적)</strong>
+                                <br></br>
+                                본회는 급격한 환경변화로 인해 개인 또는 집단이 겪는 심리적, 정서적, 인성적 스트레스를 해
+                                결하고 도움을 줄 수 있는 사람을 육성함을 목적으로 한다.
+                            </p>
+                            <p>
+                                <strong>제4조(사업)</strong>
+                                <br></br>
+                                본회는 제3조의 목적을 달성하기 위하여 다음의 사업을 한다.
+                                <br></br>
+                                ① NLP 교육 및 인력양성
+                                <br></br>
+                                ② 한국정신건강관리사의 교육 및 인력양성
+                                <br></br>
+                                ③ 멘탈코칭 및 도서해설사 교육 및 인력양성
+                                <br></br>
+                                ④ 위 사업 운영에 필요한 조사연구, 인식제고, 정책 제언 및 제 단체와의 교류
+                                <br></br>
+                                ⑤ 본회의 목정 달성에 적합한 사업 운영 및 기여하는 제 활동 일체
+                            </p>
+                        </div>
+
                     </div>
                     
-                    {showDiv1 && 
-                        <div>
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
-                                <BrownBar />
-                                <h3>2022년 한국임상심리학회 회칙(221228개정)</h3>
-                            </div>
-                            <div className='chapter_box'>
-                                제 1장 총칙
-                            </div>
-                            <p>
-                                <strong>제 1 조 (명칭)</strong>
-                                <br></br>
-                                본 학회는 한국심리학회 산하 학회로서 한국임상심리학회(Korean Clinical Psychology Association)라 한다.
-                            </p>
-                            <p>
-                                <strong>제 2 조 (소재)</strong>
-                                <br></br>
-                                학회의 사무국은 이사회에서 지정하는 장소에 둔다.
-                            </p>
-                        </div>}
-
-
-                    {showDiv2 && 
-                        <div>
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
-                                <BrownBar />
-                                <h3>2022년 한국임상심리학회 운영세칙(221014시행)</h3>
-                            </div>
-                            <p>
-                                <strong>제 1 조 (목적)</strong>
-                                <br></br>
-                                본 세칙은 본회 회칙의 시행에 필요한 사항을 규정하는 것을 목적으로 한다.
-                            </p>
-                            <p>
-                                <strong>제 2 조 (회원의 의무)</strong>
-                                <br></br>
-                                1. 본회의 회원은 회비납부의 의무를 지닌다. 단 종신회원은 회비납부의 의무를 면한다.
-                                <br></br>
-                                2. 본회의 회원은 이사회에서 의결한 학술 및 연수활동, 윤리교육에 참여하여야 한다. 전문회원으로서 1년간 연수평점 10시간 이상(윤리교육 2시간 포함) 취득하지 못한 자는 주의 경고를 하며, 전문가 자격의 지속여부를 이사회에서 심사할 수 있다. 3회의 주의경고를 받은 자는 회원 자격정지 처분을 내린다.
-                                <br></br>
-                                3. 본회의 목적에 위배되는 행동을 하거나 정당한 이유 없이 의무사항을 준수하지 않은 자는 이사회의 결의로 회원의 모든 자격을 정지할 수 있다.
-                                <br></br>
-                                4. 1년 이상 회비가 체납되면 완납될 때까지 본회가 발행하는 간행물을 배부하지 않으며, 2년이상 회비가 체납되면 완납될 때까지 회원자격이 일시 정지된다.
-                                <br></br>
-                                5. 전문회원, 정회원, 종신회원은 지회에 가입해야 한다.
-                            </p>
-                        </div>}
                 </div>
             </div>
         </div>

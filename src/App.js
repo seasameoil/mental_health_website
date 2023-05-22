@@ -32,11 +32,12 @@ import Sub01_2 from "./Pages/spec_news/Sub01_2";
 import Sub01_3 from "./Pages/spec_news/Sub01_3";
 import Sub02 from "./Pages/spec_news/Sub02";
 import Sub03 from "./Pages/spec_news/Sub03";
-
 //(3)정보광장
 import Sub01_1_info from "./Pages/information/Sub01_1_info";
 import Sub02_1_info from "./Pages/information/Sub02_1_info";
 import Sub02_2_info from "./Pages/information/Sub02_2_info";
+//(4)학술행사/교육
+import Sub01_1_edu from "./Pages/education/Sub01_1_edu";
 
 function App() {
   return (
@@ -83,6 +84,10 @@ function App() {
         <Route path="/information/sub01/1" element={<Sub01_1_info />} />
         <Route path="/information/sub02/1" element={<Sub02_1_info />} />
         <Route path="/information/sub02/2" element={<Sub02_2_info />} />
+      </Routes>
+
+      <Routes>
+        <Route path="/education/sub01/1" element={<Sub01_1_edu />} />
       </Routes>
 
       <Footer />

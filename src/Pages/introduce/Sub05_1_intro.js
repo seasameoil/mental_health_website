@@ -11,16 +11,16 @@ export default function Sub05_1_intro() {
             <SubTop />
             <div style={{display: 'flex'}}>
                 <Category />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0 0 0', backgroundColor: 'skyblue'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{display: 'flex', padding: '50px 0 0 0'}}>
                         <div style={{display: 'flex'}}>
                             <BrownBar />
                             <h3>조직도</h3>
                         </div>
                     </div>
 
-                    <div>
-                        <img src="/img/organization_chart.jpg" style={{width: '100%'}}/>   
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <img src="/img/organization_chart.jpg" style={{width: '50%', height: '50%'}}/>   
                     </div>
 
                 </div>

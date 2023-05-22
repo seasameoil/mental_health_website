@@ -1,15 +1,21 @@
 import React from "react";
-import SubTop from "../../components/sub_top/sub_top_news";
-import Category from "../../components/category/category_news";
+import SubTop2 from "../../components/sub_top/sub_top2";
+import Category2 from "../../components/category/category2";
 
 export default function Sub02() {
   return (
-    <div>
-      <SubTop />
-      <div style={{ display: "flex" }}>
-        <Category />
-      </div>
-      <h1>연간일정</h1>
+    <div className='sub01_1_info'>
+      <SubTop2 />
+      <div style={{display: 'flex'}}>
+          <Category2 />
+          <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
+              <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
+                  <div>
+
+                  </div>
+                </div>
+              </div>
+          </div>
     </div>
   );
 }

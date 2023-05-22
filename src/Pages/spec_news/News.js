@@ -8,9 +8,9 @@ import "./pagination.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_1() {
+export default function News() {
   const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notif"); {/*수정해야 함*/}
+  const usersCollectionRef = collection(fireStore, "notification");
 
   const uniqueId = useId();
   //console.log(uniqueId);

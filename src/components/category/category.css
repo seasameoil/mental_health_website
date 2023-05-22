@@ -1,5 +1,4 @@
 .category {
-    background-color: rgb(246, 220, 50);
     width: 300px;
     padding: 50px 70px;
 }
@@ -9,6 +8,15 @@
     font-size: 30px;
 }
 
+.category .subtitle {
+    padding: 10px 20px;
+}
+
+.category .subtitle:hover {
+    background-color: #b48347;
+    color: white;
+}
+  
 .category a {
     text-decoration: none;
     color: black;
@@ -16,4 +24,11 @@
 
 .category .sub-category {
     list-style: none;
+    padding: 10px 20px;
+    background-color: rgb(235, 234, 234);
 }
+
+.category .sub-category:hover{
+    background-color: rgb(196, 196, 196);
+}
+

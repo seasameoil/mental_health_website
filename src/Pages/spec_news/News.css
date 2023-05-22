@@ -1,0 +1,26 @@
+.sub02_news table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd; 
+  }
+
+.sub02_news th, .sub02_news td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-top: none; /* 테이블 헤더 상단 테두리 제거 */
+}
+
+.sub02_news th {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.sub02_news td:nth-child(1),
+.sub02_news td:nth-child(2),
+.sub02_news td:nth-child(4),
+.sub02_news td:nth-child(5),
+.sub02_news td:nth-child(6),
+.sub02_news td:nth-child(7) {
+    text-align: center;
+}

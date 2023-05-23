@@ -2,7 +2,7 @@ import React from "react";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_2() {
+export default function Sub01_4() {
   return (
     <div className="sub01_1_info">
       <SubTop2 />

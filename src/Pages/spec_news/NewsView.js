@@ -22,7 +22,7 @@ export default function NewsView() {
     };
     fetchData();
   }, [id]);
-  console.log(post);
+  //console.log(post);
 
   return (
     <div>

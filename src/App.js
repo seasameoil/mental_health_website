@@ -25,6 +25,7 @@ import NewsView from "./Pages/spec_news/NewsView";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
 import Sub01_2 from "./Pages/spec_news/Sub01_2";
 import Sub01_3 from "./Pages/spec_news/Sub01_3";
+import Sub01_4 from "./Pages/spec_news/Sub01_4";
 import Sub02 from "./Pages/spec_news/Sub02";
 import Sub03 from "./Pages/spec_news/Sub03";
 //(3)정보광장
@@ -67,6 +68,7 @@ function App() {
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
         <Route path="/news/sub01/2" element={<Sub01_2 />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
+        <Route path="/news/sub01/4" element={<Sub01_4 />} />
         <Route path="/news/sub02" element={<Sub02 />} />
         <Route path="/news/sub03" element={<Sub03 />} />
       </Routes>

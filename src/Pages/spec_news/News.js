@@ -1,7 +1,8 @@
 import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
 import { collection, getDocs } from "firebase/firestore";
-import Pagination from 'react-js-pagination';
+import Pagination from "react-js-pagination";
+import { Link } from "react-router-dom";
 
 import "./News.css";
 import "./pagination.css";
@@ -41,69 +42,73 @@ export default function News() {
   const handlePageChange = (pageNumber) => {
     setPage(pageNumber);
     //console.log(pageNumber)
-  } 
+  };
 
   return (
-    <div className='sub02_news'>
+    <div className="sub02_news">
       <SubTop2 />
-      <div style={{display: 'flex'}}>
-          <Category2 />
-          <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-              <div style={{padding: '50px 0', backgroundColor: 'white'}}>
-                  <div style={{width: '100%'}}>
-                    <table>
-                      <thead>
-                        <th>번호</th>
-                        <th>분류</th>
-                        <th>제목</th>
-                        <th>파일</th>
-                        <th>이름</th>
-                        <th>등록일</th>
-                        <th>조회</th>
-                      </thead>
+      <div style={{ display: "flex" }}>
+        <Category2 />
+        <div
+          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+        >
+          <div style={{ padding: "50px 0", backgroundColor: "white" }}>
+            <div style={{ width: "100%" }}>
+              <table>
+                <thead>
+                  <th>번호</th>
+                  <th>분류</th>
+                  <th>제목</th>
+                  <th>파일</th>
+                  <th>이름</th>
+                  <th>등록일</th>
+                  <th>조회</th>
+                </thead>
 
-                      <tbody>
-                      {/*css 확인을 위해 임시로 만든거고 나중에 삭제 예정*/}
-                        <tr key={uniqueId}>
-                            <td align="center">1</td>
-                            <td align="center">공지</td>
-                            <td>제목입니다.</td>
-                            <td align="center">파일</td>
-                            <td align="center">홍길동</td>
-                            <td align="center">2023.05.23.</td>
-                            <td align="center">98</td>
-                          </tr>
+                <tbody>
+                  {/*css 확인을 위해 임시로 만든거고 나중에 삭제 예정*/}
+                  <tr key={uniqueId}>
+                    <td align="center">1</td>
+                    <td align="center">공지</td>
+                    <td>제목입니다.</td>
+                    <td align="center">파일</td>
+                    <td align="center">홍길동</td>
+                    <td align="center">2023.05.23.</td>
+                    <td align="center">98</td>
+                  </tr>
 
-                        {/*pagination을 위해 15개씩 slice*/}
-                        {users.slice(startIndex, endIndex).map((value) => (
-                          <tr key={uniqueId}>
-                            <td>{value.num}</td>
-                            <td>{value.type}</td>
-                            <td>{value.title}</td>
-                            <td>-</td> {/*파일*/}
-                            <td>{value.writter}</td>
-                            <td>{value.uploadTime.toDate().toISOString()}</td>
-                            <td>{/*조회수*/}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  {/*pagination을 위해 15개씩 slice*/}
+                  {users.slice(startIndex, endIndex).map((value) => (
+                    <tr key={uniqueId}>
+                      <td>{value.num}</td>
+                      <td>{value.type}</td>
+                      <Link to={`/news/${value.num}`}>
+                        <td>{value.title}</td>
+                      </Link>
+                      <td>-</td> {/*파일*/}
+                      <td>{value.writter}</td>
+                      <td>{value.uploadTime.toDate().toISOString()}</td>
+                      <td>{/*조회수*/}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-                  <div className='board_pagination'> 
-                    <Pagination
-                        activePage={page}
-                        itemsCountPerPage={itemsPerPage}
-                        totalItemsCount={len_users}
-                        pageRangeDisplayed={5}
-                        prevPageText={"‹"}
-                        nextPageText={"›"}
-                        onChange={handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="board_pagination">
+              <Pagination
+                activePage={page}
+                itemsCountPerPage={itemsPerPage}
+                totalItemsCount={len_users}
+                pageRangeDisplayed={5}
+                prevPageText={"‹"}
+                nextPageText={"›"}
+                onChange={handlePageChange}
+              />
+            </div>
           </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Nav.css'
+import "./Nav.css";
 
 const Nav = () => {
   return (
     <div className="Navigation">
-      <Link to={'/'}>
-        <div className="logo">
-          로고
-        </div>
+      <Link to={"/"}>
+        <div className="logo">로고</div>
       </Link>
-      
+
       <div>
         <Link to={"/introduce/sub01/1"}>협회소개</Link>
         {/*
@@ -47,9 +45,9 @@ const Nav = () => {
         </ul>
   */}
       </div>
-      
+
       <div>
-        <Link to={"/news"}>협회소식</Link>
+        <Link to={"/news/sub01/1"}>협회소식</Link>
         {/*
         <ul>
           <Link to={"/news/sub01"}>공지.뉴스</Link>

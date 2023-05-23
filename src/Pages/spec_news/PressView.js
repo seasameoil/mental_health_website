@@ -5,14 +5,14 @@ import { useParams } from "react-router-dom";
 
 //import "./NewsView.css";
 
-export default function PromoView() {
+export default function PressView() {
   const [post, setPost] = useState([]);
   const uniqueId = useId();
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRef = doc(fireStore, "promo", id);
+        const postRef = doc(fireStore, "press", id);
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
@@ -29,19 +29,22 @@ export default function PromoView() {
       <h2 align="center">게시글 상세정보</h2>
       <div className="post-view-wrapper" key={uniqueId}>
         <div className="post-view-row">
-          <label>게시글 번호</label>
-          <label>{post.num}</label>
-        </div>
-        <div className="post-view-row">
           <label>제목</label>
           <label>{post.title}</label>
         </div>
         <div className="post-view-row">
-          <label>작성일</label>
+          <label>자료배포일</label>
         </div>
         <div className="post-view-row">
-          <label>조회수</label>
-          <label>{post.views}</label>
+          <label>보도요청일</label>
+        </div>
+        <div className="post-view-row">
+          <label>담당부서</label>
+          <div>{post.depart}</div>
+        </div>
+        <div className="post-view-row">
+          <label>문의</label>
+          <div>{post.ask}</div>
         </div>
         <div className="post-view-row">
           <label>내용</label>

@@ -11,7 +11,7 @@ import Category2 from "../../components/category/category2";
 
 export default function Sub01_1() {
   const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notification");
+  const usersCollectionRef = collection(fireStore, "/notification");
   {
     /*수정해야 함*/
   }

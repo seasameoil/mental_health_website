@@ -22,6 +22,7 @@ import Sub05_6_intro from "./Pages/introduce/Sub05_6_intro";
 import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
 //(2)협회소식
 import NewsView from "./Pages/spec_news/NewsView";
+import PromoView from "./Pages/spec_news/PromoView";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
 import Sub01_2 from "./Pages/spec_news/Sub01_2";
 import Sub01_3 from "./Pages/spec_news/Sub01_3";
@@ -70,6 +71,7 @@ function App() {
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
         <Route path="/news/sub01/4" element={<Sub01_4 />} />
         <Route path="/news/sub02" element={<Sub02 />} />
+        <Route path="/news/promo/:id" element={<PromoView />} />
         <Route path="/news/sub03" element={<Sub03 />} />
       </Routes>
 

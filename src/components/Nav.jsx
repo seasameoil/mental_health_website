@@ -47,7 +47,7 @@ const Nav = () => {
       </div>
 
       <div>
-        <Link to={"/news/sub01"}>협회소식</Link>
+        <Link to={"/news/sub01/1"}>협회소식</Link>
         {/*
         <ul>
           <Link to={"/news/sub01"}>공지.뉴스</Link>

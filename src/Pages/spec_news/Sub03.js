@@ -10,8 +10,8 @@ import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
 export default function Sub01_1() {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notification");
+  const [promos, setPromos] = useState([]);
+  const promosRef = collection(fireStore, "promo");
   {
     /*수정해야 함*/
   }
@@ -21,18 +21,18 @@ export default function Sub01_1() {
 
   useEffect(() => {
     //console.log(fireStore);
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(
+    const getPromos = async () => {
+      const data = await getDocs(promosRef);
+      setPromos(
         data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }))
       );
       //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
-      //setLeng(users.length); //data 개수만큼 page 생성
+      //setLepromo.length); //data 개수만큼 page 생성
     };
-    getUsers();
+    getPromos();
   }, []);
 
   //pagination
@@ -60,7 +60,6 @@ export default function Sub01_1() {
               <table>
                 <thead>
                   <th>번호</th>
-                  <th>분류</th>
                   <th>제목</th>
                   <th>파일</th>
                   <th>이름</th>
@@ -72,7 +71,6 @@ export default function Sub01_1() {
                   {/*css 확인을 위해 임시로 만든거고 나중에 삭제 예정*/}
                   <tr key={uniqueId}>
                     <td align="center">1</td>
-                    <td align="center">공지</td>
                     <td>제목입니다.</td>
                     <td align="center">파일</td>
                     <td align="center">홍길동</td>
@@ -81,11 +79,12 @@ export default function Sub01_1() {
                   </tr>
 
                   {/*pagination을 위해 15개씩 slice*/}
-                  {users.slice(startIndex, endIndex).map((value) => (
+                  {promos.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
-                      <td>{value.type}</td>
-                      <td>{value.title}</td>
+                      <Link to={`/news/promo/${value.num}`}>
+                        <td>{value.title}</td>
+                      </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
                       <td>{/*조회수*/}</td>

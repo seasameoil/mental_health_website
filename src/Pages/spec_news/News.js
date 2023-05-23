@@ -10,26 +10,26 @@ import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
 export default function News() {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notification");
+  const [posts, setPosts] = useState([]);
+  const postsRef = collection(fireStore, "notification");
 
   const uniqueId = useId();
   //console.log(uniqueId);
 
   useEffect(() => {
     //console.log(fireStore);
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(
+    const getPosts = async () => {
+      const data = await getDocs(postsRef);
+      setPosts(
         data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }))
       );
       //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
-      //setLeng(users.length); //data 개수만큼 page 생성
+      //setLeng(posts.length); //data 개수만큼 page 생성
     };
-    getUsers();
+    getPosts();
   }, []);
 
   //pagination
@@ -78,7 +78,7 @@ export default function News() {
                   </tr>
 
                   {/*pagination을 위해 15개씩 slice*/}
-                  {users.slice(startIndex, endIndex).map((value) => (
+                  {posts.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
                       <td>{value.type}</td>
@@ -87,7 +87,6 @@ export default function News() {
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>{value.uploadTime.toDate().toISOString()}</td>
                       <td>{/*조회수*/}</td>
                     </tr>
                   ))}

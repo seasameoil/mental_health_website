@@ -11,7 +11,7 @@ import Category2 from "../../components/category/category2";
 
 export default function Sub01_1() {
   const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notif");
+  const usersCollectionRef = collection(fireStore, "notification");
   {
     /*수정해야 함*/
   }
@@ -90,7 +90,6 @@ export default function Sub01_1() {
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>{value.uploadTime.toDate().toISOString()}</td>
                       <td>{/*조회수*/}</td>
                     </tr>
                   ))}

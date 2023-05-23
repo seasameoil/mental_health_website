@@ -1,45 +1,47 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState, useId } from "react";
 import { fireStore } from "../Firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { Route, useNavigate } from "react-router-dom";
 
-import SubTop from "../components/sub_top/sub_top";
+import SubTop from "../components/sub_top/sub_top_news";
 import Category from "../components/category/category_news";
+import { Link } from "react-router-dom";
 
 export default function News() {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "notification");
-
+  const [posts, setPosts] = useState([]);
+  const postsCollectionRef = collection(fireStore, "notification");
   const uniqueId = useId();
-  //console.log(uniqueId);
 
   useEffect(() => {
     //console.log(fireStore);
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(
+    const getPosts = async () => {
+      const data = await getDocs(postsCollectionRef);
+      setPosts(
         data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }))
       );
     };
-    getUsers();
+    getPosts();
   }, []);
 
-  const showUsers = users.map((value) => (
+  const showPosts = posts.map((value) => (
     <tr key={uniqueId}>
       <td>{value.num}</td>
       <td>{value.type}</td>
-      <td>{value.title}</td>
+      <Link to={`/news/${value.num}`}>
+        <td>{value.title}</td>
+      </Link>
       <td>-</td>
-      <td>{value.uploadTime.toDate().toISOString()}</td>
+
       <td>{value.writter}</td>
+      <td>{value.views}</td>
     </tr>
   ));
 
   return (
     <div>
-      <h1>학회소식 페이지</h1>
       <SubTop />
       <div style={{ display: "flex" }}>
         <Category />
@@ -56,7 +58,7 @@ export default function News() {
           <th>등록일</th>
           <th>조회</th>
         </thead>
-        <tbody>{showUsers}</tbody>
+        <tbody>{showPosts}</tbody>
       </table>
     </div>
   );

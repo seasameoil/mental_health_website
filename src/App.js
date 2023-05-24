@@ -3,6 +3,8 @@ import { Route, Router, Routes } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Footer from "./components/footer/footer";
+//Home
+import Home from "./Pages/home/home";
 //(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
 import Sub01_2_intro from "./Pages/introduce/Sub01_2_intro";
@@ -45,6 +47,10 @@ function App() {
   return (
     <div className="App">
       <Nav />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
 
       <Routes>
         <Route path="/introduce/sub01/1" element={<Sub01_1_intro />} />

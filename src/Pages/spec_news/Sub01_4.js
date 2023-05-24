@@ -5,6 +5,7 @@ import axios from "axios";
 import NewsItem from "./Sub01_4_item";
 import "./News.css";
 import "./pagination.css";
+import "./Sub01_4_item.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 

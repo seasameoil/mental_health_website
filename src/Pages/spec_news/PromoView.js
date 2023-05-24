@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 //import "./NewsView.css";
@@ -16,6 +16,7 @@ export default function PromoView() {
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
+        await updateDoc(postRef, { views: Number(snapShot.data().views) + 1 });
       } catch (err) {
         console.error("Error fetching collection data: ", err);
       }

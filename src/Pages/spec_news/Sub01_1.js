@@ -81,8 +81,8 @@ export default function Sub01_1() {
                   </tr>
 
                   {/*pagination을 위해 15개씩 slice*/}
-                  {users.slice(startIndex, endIndex).map((value) => (
-                    <tr key={uniqueId}>
+                  {users.slice(startIndex, endIndex).map((value, index) => (
+                    <tr key={index}>
                       <td>{value.num}</td>
                       <td>{value.type}</td>
                       <Link to={`/news/${value.num}`}>
@@ -90,7 +90,7 @@ export default function Sub01_1() {
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>{/*조회수*/}</td>
+                      <td>{value.views}</td>
                     </tr>
                   ))}
                 </tbody>

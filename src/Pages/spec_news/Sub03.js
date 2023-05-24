@@ -87,7 +87,7 @@ export default function Sub01_1() {
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>{/*조회수*/}</td>
+                      <td>{value.views}</td>
                     </tr>
                   ))}
                 </tbody>

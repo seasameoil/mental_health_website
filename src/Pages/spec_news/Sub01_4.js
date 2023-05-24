@@ -2,7 +2,6 @@ import React, { useEffect, useState, moment } from "react";
 import Pagination from "react-js-pagination";
 import axios from "axios";
 
-import NewsItem from "./Sub01_4_item";
 import "./News.css";
 import "./pagination.css";
 import "./Sub01_4.css";

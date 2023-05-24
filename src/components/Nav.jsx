@@ -9,6 +9,7 @@ const Nav = () => {
         <div className="logo">로고</div>
       </Link>
 
+      <div className='link_container'>
       <div>
         <Link to={"/introduce/sub01/1"}>협회소개</Link>
         {/*
@@ -74,6 +75,8 @@ const Nav = () => {
       </div>
       <div>
         <Link to={"/nonMember/sub01/1"}>비회원선정</Link>
+      </div>
+      
       </div>
     </div>
   );

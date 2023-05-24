@@ -1,10 +1,18 @@
 .Navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 60px;
     height: 100px;
     background-color: pink;
+}
+.Navigation .link_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    height: 100px;
+    width: 55%; /*간격 수정*/
 }
 .Navigation .logo {
     display: flex;
@@ -13,6 +21,7 @@
     width: 300px;
     height: 40px;
     background-color: white;
+    margin-left: 60px; /*수정*/
 }
 .Navigation a {
     color: black;

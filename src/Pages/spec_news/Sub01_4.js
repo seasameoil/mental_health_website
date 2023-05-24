@@ -5,7 +5,7 @@ import axios from "axios";
 import NewsItem from "./Sub01_4_item";
 import "./News.css";
 import "./pagination.css";
-import "./Sub01_4_item.css";
+//import "./Sub01_4.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
@@ -60,7 +60,7 @@ export default function Sub01_4() {
       <div style={{ display: "flex" }}>
         <Category2 />
         <div
-          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+          style={{ backgroundColor: "pink", width: "100%", padding: "50px 60px" }}
         >
           <div>
             {articles.map((article) => (

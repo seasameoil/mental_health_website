@@ -1,7 +1,19 @@
-.container {
-    background-color: blue;
+.news_item_container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 0.5rem;
 }
 
-.container .select {
-    border: none;
+.news_item_container a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.news_item_container .publishedAt {
+    background-color: rgb(230, 229, 229);
 }

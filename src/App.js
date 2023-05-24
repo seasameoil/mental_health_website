@@ -3,6 +3,8 @@ import { Route, Router, Routes } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Footer from "./components/footer/footer";
+//Home
+import Home from "./Pages/home/home";
 //(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
 import Sub01_2_intro from "./Pages/introduce/Sub01_2_intro";
@@ -47,6 +49,10 @@ function App() {
       <Nav />
 
       <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+
+      <Routes>
         <Route path="/introduce/sub01/1" element={<Sub01_1_intro />} />
         <Route path="/introduce/sub01/2" element={<Sub01_2_intro />} />
         <Route path="/introduce/sub02" element={<Sub02_intro />} />
@@ -68,7 +74,7 @@ function App() {
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
-        <Route path="/news/sub01/2" element={<Sub01_2 />} />
+        <Route path="/news/sub01/2" element={<Sub01_1 />} /> {/*수정필요 */}
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
         <Route path="/news/sub01/4" element={<Sub01_4 />} />

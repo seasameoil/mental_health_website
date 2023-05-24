@@ -67,14 +67,6 @@ export default function Sub01_3() {
                 </thead>
 
                 <tbody>
-                  {/*css 확인을 위해 임시로 만든거고 나중에 삭제 예정*/}
-                  <tr key={uniqueId}>
-                    <td align="center">1</td>
-                    <td>제목입니다.</td>
-                    <td align="center">2023.05.23.</td>
-                    <td align="center">2023.05.23.</td>
-                    <td align="center">총무부</td>
-                  </tr>
 
                   {/*pagination을 위해 15개씩 slice*/}
                   {users.slice(startIndex, endIndex).map((value) => (

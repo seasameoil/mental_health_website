@@ -74,7 +74,7 @@ function App() {
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
-        <Route path="/news/sub01/2" element={<Sub01_2 />} />
+        <Route path="/news/sub01/2" element={<Sub01_1 />} /> {/*수정필요 */}
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
         <Route path="/news/sub01/4" element={<Sub01_4 />} />

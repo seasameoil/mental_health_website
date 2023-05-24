@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, moment } from "react";
 import Pagination from "react-js-pagination";
 import axios from "axios";
 
 import NewsItem from "./Sub01_4_item";
 import "./News.css";
 import "./pagination.css";
-//import "./Sub01_4.css";
+import "./Sub01_4.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
@@ -13,6 +13,8 @@ export default function Sub01_4() {
   //news axios
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
+  const CLINET_ID = process.env.REACT_APP_X_NAVER_CLIENT_ID;
+  const CLINET_PW = process.env.REACT_APP_X_NAVER_CLIENT_SECRET;
 
   //pagination
   const [page, setPage] = useState(1);
@@ -26,21 +28,23 @@ export default function Sub01_4() {
     //console.log(pageNumber)
   };
 
+  const apiGet = async (param) => {
+    const apiUrl = "/api/v1/search/news.json?query=" + param + "display=15";
+    const resp = await fetch(apiUrl, {
+      //method: "GET",
+      headers: {
+        "X-Naver-Client-Id": CLINET_ID,
+        "X-Naver-Client-Secret": CLINET_PW,
+      },
+    });
+    resp.json().then((data) => {
+      setArticles(data.items);
+    });
+  };
+  console.log(articles);
+
   useEffect(() => {
-    // async를 사용하는 함수 따로 선언
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=kr&apiKey=162c8493e772408692ff2108355157d9"
-        );
-        setArticles(response.data.articles);
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    };
-    fetchData();
+    apiGet("건강");
   }, []);
 
   // 대기 중일 때
@@ -52,7 +56,6 @@ export default function Sub01_4() {
   if (!articles) {
     return null;
   }
-  console.log(articles);
 
   return (
     <div className="sub02_news">
@@ -60,11 +63,25 @@ export default function Sub01_4() {
       <div style={{ display: "flex" }}>
         <Category2 />
         <div
-          style={{ backgroundColor: "pink", width: "100%", padding: "50px 60px" }}
+          style={{
+            backgroundColor: "pink",
+            width: "100%",
+            padding: "50px 60px",
+          }}
         >
           <div>
             {articles.map((article) => (
-              <NewsItem key={article.url} article={article} />
+              <div>
+                <a href={article.link}>
+                  {article.title
+                    ?.replace(/[^\w\sㄱ-힣]$/gi, "")
+                    .replace(/&apos/gi, "")
+                    .replace(/&quot/gi, "")
+                    .replace(/<b>/gi, "")
+                    .replace(/<\/b>/gi, "")}
+                </a>
+                <div>{article.pubDate.slice(0, -15)}</div>
+              </div>
             ))}
           </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, moment } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "react-js-pagination";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ export default function Sub01_4() {
   };
 
   const apiGet = async (param) => {
-    const apiUrl = "/api/v1/search/news.json?query=" + param + "display=15";
+    const apiUrl = "/api/v1/search/news.json?query=" + param + "&display=15";
     const resp = await fetch(apiUrl, {
       //method: "GET",
       headers: {
@@ -43,7 +43,7 @@ export default function Sub01_4() {
   console.log(articles);
 
   useEffect(() => {
-    apiGet("건강");
+    apiGet("의료");
   }, []);
 
   // 대기 중일 때
@@ -69,17 +69,20 @@ export default function Sub01_4() {
           }}
         >
           <div>
-            {articles.map((article) => (
-              <div>
-                <a href={article.link}>
+            {articles.map((article, index) => (
+              <div className="news_item_container" key={index}>
+                <a href={article.originallink}>
                   {article.title
                     ?.replace(/[^\w\sㄱ-힣]$/gi, "")
                     .replace(/&apos/gi, "")
                     .replace(/&quot/gi, "")
                     .replace(/<b>/gi, "")
-                    .replace(/<\/b>/gi, "")}
+                    .replace(/<\/b>/gi, "")
+                    .replace(/;/gi, "")}
                 </a>
-                <div>{article.pubDate.slice(0, -15)}</div>
+                <div className="publishedAt">
+                  {article.pubDate.slice(0, -15)}
+                </div>
               </div>
             ))}
           </div>

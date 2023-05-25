@@ -1,29 +1,90 @@
-.Navigation {
+/* Nav.css */
+/* Header */
+
+header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0 60px;
-    height: 100px;
-    background-color: pink;
-}
-.Navigation .link_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 60px;
-    height: 100px;
-    width: 55%; /*간격 수정*/
-}
-.Navigation .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 60px;
+  }
+  
+  .header_logoImg {
     width: 300px;
     height: 40px;
-    background-color: white;
-    margin-left: 60px; /*수정*/
-}
-.Navigation a {
-    color: black;
+    background-color: rgb(204, 204, 204);
+    margin-right: 60px;
+  }
+  
+  /* Navigation links */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
+    width: 100%;
+  }
+  .nav_link {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
-}
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav_link:hover {
+    color: #ff9100;
+  }
+  
+  /* Hover area */
+  .hover_area {
+    position: relative;
+  }
+  
+  .hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #434141;
+    width: 100%;
+    padding: 30px 60px;
+    /* /justify-content: center; */
+  }
+  
+  .hover article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Apply styles to the specific links in each hover article */
+  .hover_introduce a,
+  .hover_news a,
+  .hover_information a,
+  .hover_education a,
+  .hover_journal a,
+  .hover_nonMember a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: white;
+    font-weight: bold;
+    margin-right: 70px; /*갈아엎어야 할 듯*/
+    font-size: 14px;
+  }
+  
+  .hover_introduce a:hover,
+  .hover_news a:hover,
+  .hover_information a:hover,
+  .hover_education a:hover,
+  .hover_journal a:hover,
+  .hover_nonMember a:hover {
+    color: #ff9100;
+  }
+
+  /*수정 필요*/
+  .hover_introduce a {
+    margin-left: 390px;
+  }
+
+  .hover_nonMember a {
+    margin-right: 60px;
+  }

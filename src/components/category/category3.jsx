@@ -27,6 +27,7 @@ export default function Category3() {
                         <Link to={"/information/sub01/1"}>
                             <li className='sub-category'>우울증</li>
                         </Link>
+                        {/*
                         <Link to={"/information/sub01/2"}>
                             <li className='sub-category'>아동청소년 우울증</li>
                         </Link>
@@ -42,6 +43,7 @@ export default function Category3() {
                         <Link to={"/information/sub01/6"}>
                             <li className='sub-category'>게슈탈트심리치료</li>
                         </Link>
+                    */}
                     </div>
                     }
                 </ul>

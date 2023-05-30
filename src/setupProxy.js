@@ -1,41 +1,15 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const port = 5002;
-const axios = require("axios");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-const CLINET_ID = process.env.REACT_APP_X_NAVER_CLIENT_ID;
-const CLINET_PW = process.env.REACT_APP_X_NAVER_CLIENT_SECRET;
-
-app.use(cors());
-app.use(bodyParser.json());
-
-app.use("/search", (res) => {
-  const word = "의료";
-
-  axios
-    .get(
-      "https://openapi.naver.com/v1/search/news.json?query" +
-        word +
-        "&display=15",
-      {
-        headers: {
-          "X-Naver-Client-Id": CLINET_ID,
-          "X-Naver-Client-Secret": CLINET_PW,
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    )
-    .then((data) => {
-      console.log(data);
-      res.send(data);
+module.exports = function (app) {
+  app.use(
+    createProxyMiddleware("/v1", {
+      target: "https://openapi.naver.com",
+      changeOrigin: true,
+      // 하단 처리는 필수로 해주어야 한다. 아래의 내용이 없으면 url 경로에
+      // api가 추가되어 경로를 찾을 수 없어진다.
+      /*pathRewrite: {
+        "^/api/": "/",
+      },*/
     })
-    .catch(function (err) {
-      console.log(err);
-    });
-});
-
-app.listen(port, () => {
-  console.log(`express is running on ${port}`);
-});
+  );
+};

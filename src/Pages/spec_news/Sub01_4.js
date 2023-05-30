@@ -28,18 +28,25 @@ export default function Sub01_4() {
   };
 
   const apiGet = async (param) => {
-    const apiUrl = "/api/v1/search/news.json?query=" + param + "&display=15";
-    const resp = await fetch(apiUrl, {
+    const apiUrl =
+      process.env.REACT_APP_DB_HOST +
+      "/v1/search/news.json?query=" +
+      param +
+      "&display=15";
+    const resp = axios.get(apiUrl, {
       //method: "GET",
       headers: {
         "X-Naver-Client-Id": CLINET_ID,
         "X-Naver-Client-Secret": CLINET_PW,
+        "Access-Control-Allow-Origin": "*",
       },
     });
-    resp.json().then((data) => {
-      setArticles(data.items);
+    resp.then((data) => {
+      setArticles(data.data.items);
     });
+    console.log(resp);
   };
+
   console.log(articles);
 
   useEffect(() => {

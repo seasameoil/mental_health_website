@@ -42,7 +42,7 @@ import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 //(6)비회원선정
 import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
-import Auth from "./Pages/login/Auth";
+import Auth from "./Pages/login/Login";
 
 const AppRouter = () => {
   return (
@@ -100,6 +100,10 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/nonMember/sub01/1" element={<Sub01_1_non />} />
+      </Routes>
+
+      <Routes>
+        <Route path="/login" element={<Auth />} />
       </Routes>
     </div>
   );

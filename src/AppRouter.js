@@ -1,3 +1,4 @@
+//로그인 전 (기본) 라우팅
 import React, { useEffect } from "react";
 import { Route, Router, Routes } from "react-router-dom";
 
@@ -44,7 +45,17 @@ import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
 import Auth from "./Pages/login/Login";
 
-const AppRouter = () => {
+const AppRouter = (props) => {
+  const isLogin = props.isLogin;
+
+  const onLogout = () => {
+    sessionStorage.removeItem("userId");
+    document.location.href = "/";
+  };
+
+  const onLogIn = () => {
+    document.location.href = "/login";
+  };
   return (
     <div className="App">
       <Nav />
@@ -74,7 +85,7 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
-        <Route path="/news/sub01/1" element={<Sub01_1 />} />
+        <Route path="/news/sub01/1" isLogin={isLogin} element={<Sub01_1 />} />
         <Route path="/news/sub01/2" element={<Sub01_1 />} /> {/*수정필요 */}
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
@@ -105,6 +116,9 @@ const AppRouter = () => {
       <Routes>
         <Route path="/login" element={<Auth />} />
       </Routes>
+      <button type="button" onClick={isLogin ? onLogout : onLogIn}>
+        {isLogin ? "Logout" : "Login"}
+      </button>
     </div>
   );
 };

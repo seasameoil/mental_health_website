@@ -30,13 +30,19 @@ const Auth = () => {
       //console.log(isUserExist);
       if (isUserExist.length === 1 && isPwdCorrect.length === 1) {
         console.log("found user!");
+        sessionStorage.setItem("userId", email);
+      } else if (isUserExist.length !== 1) {
+        console.log("존재하지 않는 아이디 입니다.");
+        alert("존재하지 않는 아이디 입니다.");
       } else {
-        console.log("Try again,,,");
+        alert("존재하지 않는 회원이거나 아이디/비밀번호를 다시 시도해 주세요.");
       }
     } catch (error) {
       console.log(error);
       setError(error.message);
     }
+
+    document.location.href = "/";
   };
 
   return (
@@ -58,7 +64,6 @@ const Auth = () => {
           onChange={onChange}
         />
         <input type="submit" value={"Sign In"} />
-        {error}
       </form>
     </div>
   );

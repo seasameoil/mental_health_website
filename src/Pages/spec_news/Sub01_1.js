@@ -2,14 +2,15 @@ import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Pagination from "react-js-pagination";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import "./News.css";
 import "./pagination.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_1() {
+export default function Sub01_1(props) {
+  const isLogin = props.isLogin;
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(fireStore, "/notification");
   {

@@ -44,6 +44,8 @@ import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
 import Auth from "./Pages/login/Login";
+//글쓰기 테스트
+import NewsWrite from "./Pages/spec_news/writing/NewsWrite";
 
 const AppRouter = (props) => {
   const isLogin = props.isLogin;
@@ -93,6 +95,11 @@ const AppRouter = (props) => {
         <Route path="/news/sub02" element={<Sub02 />} />
         <Route path="/news/promo/:id" element={<PromoView />} />
         <Route path="/news/sub03" element={<Sub03 />} />
+      </Routes>
+
+      {/*글쓰기 테스트*/}
+      <Routes>
+        <Route path="/news/sub01/1/write" element={<NewsWrite />} />
       </Routes>
 
       <Routes>

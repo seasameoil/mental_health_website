@@ -5,7 +5,7 @@ export default function Category4() {
     return(
         <div className='category'>
                 <hr></hr>   
-                <div className='title'>학술행사/교육</div>
+                <div className='title'>이벤트</div>
                 <hr></hr>
 
                 <ul>

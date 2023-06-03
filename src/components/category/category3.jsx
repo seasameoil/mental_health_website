@@ -17,7 +17,7 @@ export default function Category3() {
     return(
         <div className='category'>
                 <hr></hr>
-                <div className='title'>정보광장</div>
+                <div className='title'>프로그램</div>
                 <hr></hr>
 
                 <ul>

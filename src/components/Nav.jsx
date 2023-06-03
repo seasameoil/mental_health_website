@@ -26,13 +26,13 @@ export default function Nav() {
             협회소식
           </Link>
           <Link className="nav_link" to="/information/sub01/1">
-            정보광장
+            프로그램
           </Link>
           <Link className="nav_link" to="/education/sub01/1">
-            학술행사/교육
+            이벤트
           </Link>
           <Link className="nav_link" to="/journal/sub01/1">
-            협회지
+            블로그
           </Link>
           <Link className="nav_link" to="/nonMember/sub01/1">
             비회원선정

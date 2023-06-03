@@ -5,7 +5,7 @@ export default function Category5() {
     return(
         <div className='category'>
                 <hr></hr>
-                <div className='title'>협회지</div>
+                <div className='title'>블로그</div>
                 <hr></hr>
 
                 <ul>

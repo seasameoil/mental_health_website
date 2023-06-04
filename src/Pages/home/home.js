@@ -38,7 +38,7 @@ export default function Home() {
       <div className="video">소개 영상</div>
       <div className="shortcuts_container">
         <Link to="/introduce/sub01/1">
-          <div className="shortcuts" style={{backgroundImage: 'url("../../img/2.jpeg")'}}>
+          <div className="shortcuts" style={{backgroundImage: 'url("../../img/8.jpeg")'}}>
             
             <div className="shortcut">
               <div className="img_container">

@@ -65,13 +65,12 @@ export default function Nav() {
               <Link to="/news/sub03">홍보게시판</Link>
             </article>
             <article className="hover_information">
-              <Link to="/information/sub01/1">우울증</Link>
-              <Link>정신건강관리사란?</Link>
-              <Link to="/information/sub02/1">정신건강관리사 소개</Link>
-              <Link to="/information/sub02/2">정신건강관리사 수련</Link>
+              <Link to="/information/sub01/1">정신건강관리사</Link>
+              <Link to="/information/sub02/1">멘탈코치</Link>
             </article>
             <article className="hover_education">
               <Link to="/education/sub01/1">교육</Link>
+              <Link to="/education/sub04/1">후원 및 기부</Link>
             </article>
             <article className="hover_journal">
               <Link to="/journal/sub01/1">협회지</Link>

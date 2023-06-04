@@ -6,7 +6,7 @@ export default function SubTop5() {
             <div className='top_img'>
                 <div>
                     <div className='content' style={{fontWeight: 'bold'}}>ABOUT</div>
-                    <div className='content' style={{fontSize: '3rem'}}>협회지</div>
+                    <div className='content' style={{fontSize: '3rem'}}>블로그</div>
                 </div>
             </div>
         </div>

@@ -38,6 +38,7 @@ import Sub02_1_info from "./Pages/information/Sub02_1_info";
 import Sub02_2_info from "./Pages/information/Sub02_2_info";
 //(4)학술행사/교육
 import Sub01_1_edu from "./Pages/education/Sub01_1_edu";
+import Sub04_1_edu from "./Pages/education/Sub04_1_edu";
 //(5)협회지
 import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 //(6)비회원선정
@@ -110,6 +111,7 @@ const AppRouter = (props) => {
 
       <Routes>
         <Route path="/education/sub01/1" element={<Sub01_1_edu />} />
+        <Route path="/education/sub04/1" element={<Sub04_1_edu />} />
       </Routes>
 
       <Routes>

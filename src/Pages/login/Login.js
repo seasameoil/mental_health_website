@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { fireStore } from "../../Firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import "./login.css"
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -46,25 +47,37 @@ const Auth = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          name="email"
-          placeholder="id"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <input type="submit" value={"Sign In"} />
-      </form>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+      <div>
+        <div style={{marginBottom: '15px', fontSize: '20px', fontWeight: 'bold'}}>
+          로그인
+        </div>
+        <div>
+          <input
+            className="login-id"
+            name="email"
+            placeholder="아이디"
+            required
+            value={email}
+            onChange={onChange}
+          />
+        </div>
+        <div>
+          <input
+          className="login-pw"
+            name="password"
+            type="password"
+            placeholder="비밀번호"
+            required
+            value={password}
+            onChange={onChange}
+          />
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <button type="submit" onSubmit={onSubmit} className="login-btn">LOG IN</button>
+        </div>
+        
+      </div>
     </div>
   );
 };

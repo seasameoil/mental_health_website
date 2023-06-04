@@ -1,0 +1,17 @@
+.info_health_manager {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.info_health_manager th, .info_health_manager td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.info_health_manager th:first-child,
+.info_health_manager td:first-child {
+    text-align: center;
+    width: 30%; /* 구분(column) 칸의 너비 조정 */
+    background-color: #f2f2f2;
+}

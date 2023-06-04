@@ -69,6 +69,7 @@ a {
 }
 
 .mini-squareBtn {
+    color: white;
     border: white 1px solid;
     padding: 7px 10px;
 }

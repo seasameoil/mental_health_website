@@ -20,6 +20,12 @@ export default function Category4() {
                     </div>
                 </ul>
 
+                <ul>
+                    <Link to={"/education/sub04/1"}>
+                    <div className='subtitle'>후원 및 기부</div>
+                    </Link>
+                </ul>
+
         </div>
     )
 }

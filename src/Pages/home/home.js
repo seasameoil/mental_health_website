@@ -37,45 +37,51 @@ export default function Home() {
     <div className="home_container">
       <div className="video">소개 영상</div>
       <div className="shortcuts_container">
-        <div className="shortcuts" style={{backgroundImage: 'url("../../img/2.jpeg")'}}>
-          <div className="shortcut">
-            <div className="img_container">
-              <img src="/img/home.png" />
+        <Link to="/introduce/sub01/1">
+          <div className="shortcuts" style={{backgroundImage: 'url("../../img/2.jpeg")'}}>
+            
+            <div className="shortcut">
+              <div className="img_container">
+                <img src="/img/home.png" />
+              </div>
+              <div style={{ fontSize: "30px", fontWeight: "bold" }}>협회소개</div>
+              <div style={{ textAlign: "center" }}>About us</div>
             </div>
-            <div style={{ fontSize: "30px", fontWeight: "bold" }}>협회소개</div>
-            <div style={{ textAlign: "center" }}>About us</div>
           </div>
-        </div>
-
-        <div className="shortcuts" style={{backgroundImage: 'url("../../img/10.jpg")'}}>
-          <div className="shortcut">
-            <div className="img_container">
-              <img src="/img/home.png" />
+        </Link>
+        <Link to="/education/sub01/1">
+          <div className="shortcuts" style={{backgroundImage: 'url("../../img/10.jpg")'}}>
+            <div className="shortcut">
+              <div className="img_container">
+                <img src="/img/home.png" />
+              </div>
+              <div style={{ fontSize: "30px", fontWeight: "bold" }}>이벤트</div>
+              <div style={{ textAlign: "center" }}>Event</div>
             </div>
-            <div style={{ fontSize: "30px", fontWeight: "bold" }}>이벤트</div>
-            <div style={{ textAlign: "center" }}>Event</div>
           </div>
-        </div>
-
-        <div className="shortcuts" style={{backgroundImage: 'url("../../img/11.jpeg")'}}>
-          <div className="shortcut">
-            <div className="img_container">
-              <img src="/img/home.png" />
+        </Link>
+        <Link to="/journal/sub01/1">
+          <div className="shortcuts" style={{backgroundImage: 'url("../../img/11.jpeg")'}}>
+            <div className="shortcut">
+              <div className="img_container">
+                <img src="/img/home.png" />
+              </div>
+              <div style={{ fontSize: "30px", fontWeight: "bold" }}>블로그</div>
+              <div style={{ textAlign: "center" }}>Blog</div>
             </div>
-            <div style={{ fontSize: "30px", fontWeight: "bold" }}>블로그</div>
-            <div style={{ textAlign: "center" }}>Blog</div>
           </div>
-        </div>
-
-        <div className="shortcuts" style={{backgroundImage: 'url("../../img/3.jpeg")'}}>
-          <div className="shortcut">
-            <div className="img_container">
-              <img src="/img/home.png" />
+        </Link>
+        <Link to="/login">
+          <div className="shortcuts" style={{backgroundImage: 'url("../../img/3.jpeg")'}}>
+            <div className="shortcut">
+              <div className="img_container">
+                <img src="/img/home.png" />
+              </div>
+              <div style={{ fontSize: "30px", fontWeight: "bold" }}>협회가입</div>
+              <div style={{ textAlign: "center" }}>Join us</div>
             </div>
-            <div style={{ fontSize: "30px", fontWeight: "bold" }}>협회가입</div>
-            <div style={{ textAlign: "center" }}>Join us</div>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/*공지 */}
@@ -118,12 +124,16 @@ export default function Home() {
                 프로그램
               </div>
               <div style={{display: 'flex', marginTop: '15px'}}>
-                <div className="mini-squareBtn" style={{marginRight: '10px'}}>
-                  정신건강관리사
-                </div>
-                <div className="mini-squareBtn">
-                  멘탈코치
-                </div>
+                <Link to="/information/sub01/1">
+                  <div className="mini-squareBtn" style={{marginRight: '10px'}}>
+                    정신건강관리사
+                  </div>
+                </Link>
+                <Link to="/information/sub02/1">
+                  <div className="mini-squareBtn">
+                    멘탈코치
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -134,12 +144,16 @@ export default function Home() {
                 후원 소개
               </div>
               <div style={{display: 'flex', marginTop: '15px'}}>
-                <div className="mini-squareBtn" style={{marginRight: '10px'}}>
-                  후원 페이지
-                </div>
-                <div className="mini-squareBtn">
-                  후원 계좌 안내
-                </div>
+                <Link to="/education/sub04/1">
+                  <div className="mini-squareBtn" style={{marginRight: '10px'}}>
+                    후원 페이지
+                  </div>
+                </Link>
+                <Link to="/education/sub04/1">
+                  <div className="mini-squareBtn">
+                    후원 계좌 안내
+                  </div>
+                </Link>
               </div>
             </div>
           </div> 
@@ -151,20 +165,20 @@ export default function Home() {
         <div className="shortcut_box">
           <Link to="/news/sub01/3">
             <img src="/img/3.jpeg"/>
-            <div style={{marginLeft: '10px', marginTop: '10px'}}>보도자료</div>
+            <div style={{marginLeft: '10px', marginTop: '10px', fontSize: '20px', fontWeight: 'bold'}}>보도자료</div>
           </Link>
         </div>
 
         <div className="shortcut_box">
           <Link to="news/sub02">
             <img src="/img/8.jpeg"/>
-            <div style={{marginLeft: '10px', marginTop: '10px'}}>연간일정</div>
+            <div style={{marginLeft: '10px', marginTop: '10px', fontSize: '20px', fontWeight: 'bold'}}>연간일정</div>
           </Link>
         </div>
         <div className="shortcut_box">
           <Link to="/news/sub03">
             <img src="/img/11.jpeg"/>
-            <div style={{marginLeft: '10px', marginTop: '10px'}}>홍보게시판</div>
+            <div style={{marginLeft: '10px', marginTop: '10px', fontSize: '20px', fontWeight: 'bold'}}>홍보게시판</div>
           </Link>
         </div>
       </div>

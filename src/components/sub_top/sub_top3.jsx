@@ -6,7 +6,7 @@ export default function SubTop3() {
             <div className='top_img'>
                 <div>
                     <div className='content' style={{fontWeight: 'bold'}}>ABOUT</div>
-                    <div className='content' style={{fontSize: '3rem'}}>정보광장</div>
+                    <div className='content' style={{fontSize: '3rem'}}>프로그램</div>
                 </div>
             </div>
         </div>

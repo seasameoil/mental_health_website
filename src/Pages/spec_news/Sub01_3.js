@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import Pagination from "react-js-pagination";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,7 @@ export default function Sub01_3() {
   {
     /*수정해야 함*/
   }
+  const q = query(usersCollectionRef, orderBy("num", "desc"));
 
   const uniqueId = useId();
   //console.log(uniqueId);
@@ -67,7 +68,6 @@ export default function Sub01_3() {
                 </thead>
 
                 <tbody>
-
                   {/*pagination을 위해 15개씩 slice*/}
                   {users.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>

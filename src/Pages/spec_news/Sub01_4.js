@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "react-js-pagination";
-import axios from "axios";
+import { fireStore } from "../../Firebase";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 import "./News.css";
 import "./pagination.css";
@@ -9,11 +10,10 @@ import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
 export default function Sub01_4() {
-  //news axios
-  const [articles, setArticles] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const CLINET_ID = process.env.REACT_APP_X_NAVER_CLIENT_ID;
-  const CLINET_PW = process.env.REACT_APP_X_NAVER_CLIENT_SECRET;
+  //news
+  const [articles, setArticles] = useState([]);
+  const articlesRef = collection(fireStore, "news");
+  const q = query(articlesRef, orderBy("time", "desc"));
 
   //pagination
   const [page, setPage] = useState(1);
@@ -27,41 +27,20 @@ export default function Sub01_4() {
     //console.log(pageNumber)
   };
 
-  const apiGet = async (param) => {
-    const apiUrl =
-      process.env.REACT_APP_DB_HOST +
-      "/v1/search/news.json?query=" +
-      param +
-      "&display=15";
-    const resp = axios.get(apiUrl, {
-      //method: "GET",
-      headers: {
-        "X-Naver-Client-Id": CLINET_ID,
-        "X-Naver-Client-Secret": CLINET_PW,
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
-    resp.then((data) => {
-      setArticles(data.data.items);
-    });
-    console.log(resp);
-  };
-
-  console.log(articles);
-
   useEffect(() => {
-    apiGet("의료");
+    const getArticles = async () => {
+      const data = await getDocs(q);
+      setArticles(
+        data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
+      //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
+      //setLeng(users.length); //data 개수만큼 page 생성
+    };
+    getArticles();
   }, []);
-
-  // 대기 중일 때
-  if (loading) {
-    return <div>대기 중...</div>;
-  }
-
-  // 아직 articles 값이 설정되지 않았을 때
-  if (!articles) {
-    return null;
-  }
 
   return (
     <div className="sub02_news">
@@ -78,18 +57,11 @@ export default function Sub01_4() {
           <div>
             {articles.map((article, index) => (
               <div className="news_item_container" key={index}>
-                <a href={article.originallink}>
-                  {article.title
-                    ?.replace(/[^\w\sㄱ-힣]$/gi, "")
-                    .replace(/&apos/gi, "")
-                    .replace(/&quot/gi, "")
-                    .replace(/<b>/gi, "")
-                    .replace(/<\/b>/gi, "")
-                    .replace(/;/gi, "")}
+                <div>{article.company}</div>
+                <a href={article.link} target="_blank" rel="noreferrer">
+                  {article.title}
                 </a>
-                <div className="publishedAt">
-                  {article.pubDate.slice(0, -15)}
-                </div>
+                <div className="publishedAt">{article.time}</div>
               </div>
             ))}
           </div>

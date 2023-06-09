@@ -1,87 +1,71 @@
-import React, { useState } from "react";
 import "./Nav.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Nav() {
-  const [hover, setHover] = useState(false);
 
   return (
     <div className="nav_container">
       <div className="container">
-      <header
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <Link to="/">
-          <div className="header_logoImg">
-            로고
+        <form id="form1" runat="server">
+          <div class="wrap">
+              <div class="menubar">
+                <Link to="/">
+                  <div class="menuLogo">
+                    <img src="/img/fulllogo.jpg" style={{width: '60px', height: '50px'}}/>
+                    <div style={{marginLeft: '5px'}}>한국정신건강관리협회</div>
+                  </div>
+                </Link>
+
+                  <ul class="menuItem">
+                    <li>
+                        <Link to="/introduce/sub01/1" style={{fontWeight: 'bold'}}>협회소개</Link>
+                        <ul>
+                            <li><Link to="/introduce/sub01/1">소개</Link></li>
+                            <li><Link to="/introduce/sub02">인사말</Link></li>
+                            <li><Link to="/introduce/sub03/1">연혁</Link></li>
+                            <li><Link to="/introduce/sub04/1">협회규칙(정관)</Link></li>
+                            <li><Link to="introduce/sub04/2">윤리규정</Link></li>
+                            <li><Link to="/introduce/sub05/1">조직</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="/news/sub01/1" style={{fontWeight: 'bold'}}>협회소식</Link>
+                        <ul>
+                            <li><Link to="/news/sub01/1">학회 공지사항</Link></li>
+                            <li><Link to="/news/sub01/2">관련 공지사항</Link></li>
+                            <li><Link to="/news/sub01/3">보도자료</Link></li>
+                            <li><Link to="/news/sub01/4">뉴스포털</Link></li>
+                            <li><Link to="/news/sub02">연간일정</Link></li>
+                            <li><Link to="/news/sub03">홍보게시판</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="/information/sub01/1" style={{fontWeight: 'bold'}}>프로그램</Link>
+                        <ul>
+                            <li><Link to="/information/sub01/1">정신건강관리사</Link></li>
+                            <li><Link to="/information/sub02/1">멘탈코치</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="/education/sub01/1" style={{fontWeight: 'bold'}}>이벤트</Link>
+                        <ul>
+                            <li><Link to="/education/sub01/1">교육</Link></li>
+                            <li><Link to="/education/sub04/1">후원 및 기부</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="/journal/sub01/1" style={{fontWeight: 'bold'}}>블로그</Link>
+                    </li>
+                    <li>
+                        <Link to="/nonMember/sub01/1" style={{fontWeight: 'bold'}}>비회원선정</Link>
+                    </li>
+                  </ul>
+              </div>
           </div>
-        </Link>
-
-        <div className="nav">
-          <Link className="nav_link" to="/introduce/sub01/1">
-            협회소개
-          </Link>
-          <Link className="nav_link" to="/news/sub01/1">
-            협회소식
-          </Link>
-          <Link className="nav_link" to="/information/sub01/1">
-            프로그램
-          </Link>
-          <Link className="nav_link" to="/education/sub01/1">
-            이벤트
-          </Link>
-          <Link className="nav_link" to="/journal/sub01/1">
-            블로그
-          </Link>
-          <Link className="nav_link" to="/nonMember/sub01/1">
-            비회원선정
-          </Link>
-        </div>
-
-      </header>
-
-      <div
-        className="hover_area"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        {hover === true && (
-          <div className="hover">
-            <article className="hover_introduce">
-              <Link to="/introduce/sub01/1">소개</Link>
-              <Link to="/introduce/sub02">인사말</Link>
-              <Link to="/introduce/sub03/1">연혁</Link>
-              <Link to="/introduce/sub04/1">협회규칙(정관)</Link>
-              <Link to="/introduce/sub04/2">윤리규정</Link>
-              <Link to="/introduce/sub05/1">조직</Link>
-            </article>
-            <article className="hover_news">
-              <Link to="/news/sub01/1">학회 공지사항</Link>
-              <Link to="/news/sub01/2">관련 공지사항</Link>
-              <Link to="/news/sub01/3">보도자료</Link>
-              <Link to="/news/sub01/4">뉴스포털</Link>
-              <Link to="/news/sub02">연간일정</Link>
-              <Link to="/news/sub03">홍보게시판</Link>
-            </article>
-            <article className="hover_information">
-              <Link to="/information/sub01/1">정신건강관리사</Link>
-              <Link to="/information/sub02/1">멘탈코치</Link>
-            </article>
-            <article className="hover_education">
-              <Link to="/education/sub01/1">교육</Link>
-              <Link to="/education/sub04/1">후원 및 기부</Link>
-            </article>
-            <article className="hover_journal">
-              <Link to="/journal/sub01/1">협회지</Link>
-            </article>
-            <article className="hover_nonMember">
-              <Link to="/nonMember/sub01/1">비회원선정</Link>
-            </article>
-          </div>
-        )}
+        </form>
+     
       </div>
-    </div>
     </div>
   );
 }

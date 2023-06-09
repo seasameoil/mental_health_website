@@ -5,10 +5,11 @@
 
 .shortcuts_container {
     display: flex;
-    justify-content: center
-}
-
-.shortcuts_container .shortcuts {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .shortcuts {
     background-color: rgb(117, 117, 117);
     background-size: cover;
     width: 360px;
@@ -18,14 +19,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.shortcuts img {
+  }
+  
+  .shortcuts img {
     width: 80px;
     height: 105px;
-}
-
-.shortcut .img_container {
+  }
+  
+  .shortcut .img_container {
     padding-left: 8px;
     display: flex;
     justify-content: center;
@@ -33,7 +34,9 @@
     border-radius: 50%;
     background-color: rgb(209, 135, 8);
     margin-bottom: 10px;
-}
+    width: 110px;
+    height: 110px;
+  }  
 
 /*공지*/
 .home_notification table {

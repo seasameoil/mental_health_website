@@ -1,90 +1,71 @@
-/* Nav.css */
-/* Header */
+.wrap {
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+}
 
-header {
-    display: flex;
-    align-items: center;
-    padding: 40px 60px;
-  }
-  
-  .header_logoImg {
-    width: 300px;
-    height: 40px;
-    background-color: rgb(204, 204, 204);
-    margin-right: 60px;
-  }
-  
-  /* Navigation links */
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 30px;
-    width: 100%;
-  }
-  .nav_link {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .nav_link:hover {
-    color: #ff9100;
-  }
-  
-  /* Hover area */
-  .hover_area {
-    position: relative;
-  }
-  
-  .hover {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #434141;
-    width: 100%;
-    padding: 30px 60px;
-    /* /justify-content: center; */
-  }
-  
-  .hover article {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  /* Apply styles to the specific links in each hover article */
-  .hover_introduce a,
-  .hover_news a,
-  .hover_information a,
-  .hover_education a,
-  .hover_journal a,
-  .hover_nonMember a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-    color: white;
-    font-weight: bold;
-    margin-right: 70px; /*갈아엎어야 할 듯*/
-    font-size: 14px;
-  }
-  
-  .hover_introduce a:hover,
-  .hover_news a:hover,
-  .hover_information a:hover,
-  .hover_education a:hover,
-  .hover_journal a:hover,
-  .hover_nonMember a:hover {
-    color: #ff9100;
-  }
+.menubar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /**/
+}
 
-  /*수정 필요*/
-  .hover_introduce a {
-    margin-left: 390px;
-  }
+.menuLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
 
-  .hover_nonMember a {
-    margin-right: 60px;
-  }
+.menuItem {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 70%; /*추가되는 네브바에 따라 수정 필요*/
+}
+
+.menuItem li {
+  display: inline-block;
+  position: relative;
+}
+
+.menuItem a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  width: 120px; /*추가되는 네브바에 따라 수정 필요*/
+}
+
+
+.menuItem ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #434141;
+  padding: 20px 15px;
+
+}
+
+.menuItem li:hover ul {
+  display: block;
+}
+
+.menuItem ul li {
+  display: block;
+}
+
+.menuItem ul li a {
+  padding: 5px 10px;
+  color: white;
+}
+
+.menuItem ul li a:hover {
+  color: #ff9100;
+}
+
+

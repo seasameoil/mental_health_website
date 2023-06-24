@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import Pagination from "react-js-pagination";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,7 @@ export default function Sub01_1() {
   {
     /*수정해야 함*/
   }
+  const q = query(promosRef, orderBy("num", "desc"));
 
   const uniqueId = useId();
   //console.log(uniqueId);
@@ -68,7 +69,6 @@ export default function Sub01_1() {
                 </thead>
 
                 <tbody>
-
                   {/*pagination을 위해 15개씩 slice*/}
                   {promos.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>
@@ -78,7 +78,7 @@ export default function Sub01_1() {
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>-</td> {/*날짜*/}
+                      <td>{value.uploadTime.toDate().toLocaleDateString()}</td>
                       <td>{value.views}</td>
                     </tr>
                   ))}

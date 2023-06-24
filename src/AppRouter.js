@@ -88,7 +88,7 @@ const AppRouter = (props) => {
 
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
-        <Route path="/news/sub01/1" isLogin={isLogin} element={<Sub01_1 />} />
+        <Route path="/news/sub01/1" element={<Sub01_1 />} />
         <Route path="/news/sub01/2" element={<Sub01_1 />} /> {/*수정필요 */}
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
@@ -100,7 +100,11 @@ const AppRouter = (props) => {
 
       {/*글쓰기 테스트*/}
       <Routes>
-        <Route path="/news/sub01/1/write" element={<NewsWrite />} />
+        <Route
+          path="/news/sub01/1/write"
+          isLogin={isLogin}
+          element={<NewsWrite />}
+        />
       </Routes>
 
       <Routes>

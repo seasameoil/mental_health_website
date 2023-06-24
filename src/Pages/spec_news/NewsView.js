@@ -2,7 +2,6 @@ import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
-
 import "./NewsView.css";
 import "./News.css";
 import SubTop2 from "../../components/sub_top/sub_top2";

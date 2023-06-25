@@ -17,6 +17,7 @@ import {
   listAll,
 } from "firebase/storage";
 
+//공지사항 게시판
 export default function NewsWrite() {
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");

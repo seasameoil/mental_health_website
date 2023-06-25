@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fireStore } from "../../Firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import "./login.css"
+import "./login.css";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -47,9 +47,18 @@ const Auth = () => {
   };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <div>
-        <div style={{marginBottom: '15px', fontSize: '20px', fontWeight: 'bold'}}>
+        <div
+          style={{ marginBottom: "15px", fontSize: "20px", fontWeight: "bold" }}
+        >
           로그인
         </div>
         <div>
@@ -64,7 +73,7 @@ const Auth = () => {
         </div>
         <div>
           <input
-          className="login-pw"
+            className="login-pw"
             name="password"
             type="password"
             placeholder="비밀번호"
@@ -73,10 +82,17 @@ const Auth = () => {
             onChange={onChange}
           />
         </div>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <button type="submit" onSubmit={onSubmit} className="login-btn">LOG IN</button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <button type="submit" onClick={onSubmit} className="login-btn">
+            LOG IN
+          </button>
         </div>
-        
       </div>
     </div>
   );

@@ -17,8 +17,8 @@ import {
   listAll,
 } from "firebase/storage";
 
-//홍보게시판
-export default function NewsWrite() {
+//블로그게시판
+export default function BlogWrite() {
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");
@@ -37,6 +37,13 @@ export default function NewsWrite() {
     orderBy("num", "desc"),
     limit(1)
   );
+
+  useEffect(() => {
+    console.log();
+    /*if (isLogin == false) {
+      window.location.href = "/";
+    }*/
+  }, []);
 
   const handleTitle = (event) => {
     const {
@@ -111,7 +118,6 @@ export default function NewsWrite() {
       });
     };
     fetchData();
-    console.log(num);
   }, [q]);
 
   const handleSubmit = async (e) => {

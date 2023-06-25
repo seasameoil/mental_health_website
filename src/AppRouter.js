@@ -1,8 +1,7 @@
 //로그인 전 (기본) 라우팅
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Router, Routes } from "react-router-dom";
 
-import Nav from "./components/Nav";
 //Home
 import Home from "./Pages/home/home";
 //(1) 협회 소개
@@ -45,6 +44,7 @@ import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
 import Auth from "./Pages/login/Login";
+import CheckLogin from "./Pages/login/checkLogin";
 //글쓰기 테스트
 import NewsWrite from "./Pages/spec_news/writing/NewsWrite";
 import PressWrite from "./Pages/spec_news/writing/PressWrite";
@@ -64,8 +64,6 @@ const AppRouter = (props) => {
   };
   return (
     <div className="App">
-      <Nav />
-
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
@@ -103,22 +101,10 @@ const AppRouter = (props) => {
 
       {/*글쓰기 테스트*/}
       <Routes>
-        <Route
-          path="/news/sub01/1/write"
-          isLogin={isLogin}
-          element={<NewsWrite />}
-        />
-        <Route
-          path="/news/sub01/3/write"
-          isLogin={isLogin}
-          element={<PressWrite />}
-        />
-        <Route
-          path="/news/sub03/write"
-          isLogin={isLogin}
-          element={<PromoWrite />}
-        />
-        <Route path="/blog/write" isLogin={isLogin} element={<BlogWrite />} />
+        <Route path="/news/sub01/1/write" element={<NewsWrite />} />
+        <Route path="/news/sub01/3/write" element={<PressWrite />} />
+        <Route path="/news/sub03/write" element={<PromoWrite />} />
+        <Route path="/blog/write" element={<BlogWrite />} />
       </Routes>
 
       <Routes>
@@ -143,9 +129,6 @@ const AppRouter = (props) => {
       <Routes>
         <Route path="/login" element={<Auth />} />
       </Routes>
-      <button type="button" onClick={isLogin ? onLogout : onLogIn}>
-        {isLogin ? "Logout" : "Login"}
-      </button>
     </div>
   );
 };

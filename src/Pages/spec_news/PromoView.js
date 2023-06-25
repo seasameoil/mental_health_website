@@ -1,7 +1,8 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
+import { getStorage, ref, getMetadata } from "firebase/storage";
 
 import "./NewsView.css";
 import "./News.css";
@@ -10,8 +11,11 @@ import Category2 from "../../components/category/category2";
 
 export default function PromoView() {
   const [post, setPost] = useState([]);
-  const uniqueId = useId();
   const { id } = useParams();
+  const storage = getStorage();
+  const [image, setImage] = useState();
+  const [files, setFiles] = useState([]);
+  const [fileName, setFilesName] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +24,10 @@ export default function PromoView() {
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
+        setImage(snapShot.data().imageList);
+        snapShot.data().fileList.forEach((item) => {
+          setFiles((prev) => [...prev, item]);
+        });
         await updateDoc(postRef, { views: Number(snapShot.data().views) + 1 });
       } catch (err) {
         console.error("Error fetching collection data: ", err);
@@ -27,7 +35,25 @@ export default function PromoView() {
     };
     fetchData();
   }, [id]);
-  //console.log(post);
+
+  useEffect(() => {
+    const img = document.getElementById("myimg");
+    img.setAttribute("src", image);
+  });
+
+  useEffect(() => {
+    files.forEach((item) => {
+      const imageRef = ref(storage, item);
+      getMetadata(imageRef).then((metaData) => {
+        setFilesName((prev) => [...prev, metaData.name]);
+      });
+    });
+  }, [files]);
+
+  const handleFile = (props) => {
+    window.open(`${files[props]}`);
+    //console.log(files[props]);
+  };
 
   const navigate = useNavigate();
   const goBack = () => {
@@ -50,11 +76,24 @@ export default function PromoView() {
                 color: "grey",
               }}
             >
-              {post.num} | {post.writter} | 사무국 | 조회 {post.views}
+              {post.num} | {post.writter} | 조회 {post.views}
             </div>
             <div id="text" style={{ marginTop: "30px", lineHeight: "25px" }}>
               {post.content}
             </div>
+            <img id="myimg"></img>
+          </div>
+          <div>
+            {fileName.map((value, index) => (
+              <button
+                onClick={() => {
+                  handleFile(index);
+                }}
+                key={index}
+              >
+                {value}
+              </button>
+            ))}
           </div>
           <div
             style={{

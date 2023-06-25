@@ -17,11 +17,11 @@ import {
   listAll,
 } from "firebase/storage";
 
+//홍보게시판
 export default function NewsWrite() {
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");
-  const [type, setType] = useState("");
   const [writter, setWritter] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
@@ -33,15 +33,10 @@ export default function NewsWrite() {
   const fileListRef = ref(storage, "files/");
 
   const q = query(
-    collection(fireStore, "notification"),
+    collection(fireStore, "promo"),
     orderBy("num", "desc"),
     limit(1)
   );
-
-  const onChange = (event) => {
-    var target = document.getElementById("selectBox");
-    setType(target.options[target.selectedIndex].text);
-  };
 
   const handleTitle = (event) => {
     const {
@@ -55,7 +50,6 @@ export default function NewsWrite() {
     } = event;
     setContent(value);
   };
-
   const handleWritter = (event) => {
     const {
       target: { value },
@@ -121,11 +115,10 @@ export default function NewsWrite() {
 
   const handleSubmit = async (e) => {
     try {
-      const docRef = await addDoc(collection(fireStore, "notification"), {
+      const docRef = await addDoc(collection(fireStore, "promo"), {
         title: title,
         content: content,
         num: num,
-        type: type,
         uploadTime: Timestamp.fromDate(new Date()),
         writter: writter,
         views: 0.0,
@@ -133,7 +126,7 @@ export default function NewsWrite() {
         fileList: fileList,
       });
       //setContent(docRef);
-      window.location.href = "/news/sub01/1";
+      window.location.href = "/news/sub03";
     } catch (error) {
       alert(error);
       console.log(error);
@@ -150,11 +143,6 @@ export default function NewsWrite() {
         내용
         <textarea value={content} onChange={handleContents}></textarea>
       </div>
-      <select onChange={onChange} id="selectBox">
-        <option>분류 선택</option>
-        <option>안내</option>
-        <option>공고</option>
-      </select>
       <div>
         작성자
         <input value={writter} onChange={handleWritter}></input>

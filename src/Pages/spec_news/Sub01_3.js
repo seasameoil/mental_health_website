@@ -72,11 +72,11 @@ export default function Sub01_3() {
                   {users.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
-                      <Link to={`/news/press/${value.num}`}>
+                      <Link to={`/news/press/${value.id}`}>
                         <td>{value.title}</td>
                       </Link>
-                      <td>-</td> {/*파일*/}
-                      <td>-</td>
+                      <td>{value.releaseDate.toDate().toLocaleDateString()}</td>
+                      <td>{value.requestDate.toDate().toLocaleDateString()}</td>
                       <td>{value.depart}</td>
                     </tr>
                   ))}

@@ -9,8 +9,7 @@ import "./pagination.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_1(props) {
-  const isLogin = props.isLogin;
+export default function Sub01_1() {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(fireStore, "/notification");
   {
@@ -24,7 +23,7 @@ export default function Sub01_1(props) {
   useEffect(() => {
     //console.log(fireStore);
     const getUsers = async () => {
-      const data = await getDocs(q);
+      const data = await getDocs(usersCollectionRef);
       setUsers(
         data.docs.map((doc) => ({
           ...doc.data(),
@@ -76,12 +75,12 @@ export default function Sub01_1(props) {
                     <tr key={index}>
                       <td>{value.num}</td>
                       <td>{value.type}</td>
-                      <Link to={`/news/${value.num}`}>
+                      <Link to={`/news/${value.id}`}>
                         <td>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>
-                      <td>{value.writter}</td>
+                      <td>{value.uploadTime.toDate().toLocaleDateString()}</td>
                       <td>{value.views}</td>
                     </tr>
                   ))}

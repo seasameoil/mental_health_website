@@ -47,6 +47,9 @@ import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 import Auth from "./Pages/login/Login";
 //글쓰기 테스트
 import NewsWrite from "./Pages/spec_news/writing/NewsWrite";
+import PressWrite from "./Pages/spec_news/writing/PressWrite";
+import PromoWrite from "./Pages/spec_news/writing/PromoWrite";
+import BlogWrite from "./Pages/spec_news/writing/BlogWrite";
 
 const AppRouter = (props) => {
   const isLogin = props.isLogin;
@@ -88,7 +91,7 @@ const AppRouter = (props) => {
 
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
-        <Route path="/news/sub01/1" isLogin={isLogin} element={<Sub01_1 />} />
+        <Route path="/news/sub01/1" element={<Sub01_1 />} />
         <Route path="/news/sub01/2" element={<Sub01_1 />} /> {/*수정필요 */}
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
@@ -100,7 +103,22 @@ const AppRouter = (props) => {
 
       {/*글쓰기 테스트*/}
       <Routes>
-        <Route path="/news/sub01/1/write" element={<NewsWrite />} />
+        <Route
+          path="/news/sub01/1/write"
+          isLogin={isLogin}
+          element={<NewsWrite />}
+        />
+        <Route
+          path="/news/sub01/3/write"
+          isLogin={isLogin}
+          element={<PressWrite />}
+        />
+        <Route
+          path="/news/sub03/write"
+          isLogin={isLogin}
+          element={<PromoWrite />}
+        />
+        <Route path="/blog/write" isLogin={isLogin} element={<BlogWrite />} />
       </Routes>
 
       <Routes>

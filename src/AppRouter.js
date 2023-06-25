@@ -51,17 +51,7 @@ import PressWrite from "./Pages/spec_news/writing/PressWrite";
 import PromoWrite from "./Pages/spec_news/writing/PromoWrite";
 import BlogWrite from "./Pages/spec_news/writing/BlogWrite";
 
-const AppRouter = (props) => {
-  const isLogin = props.isLogin;
-
-  const onLogout = () => {
-    sessionStorage.removeItem("userId");
-    document.location.href = "/";
-  };
-
-  const onLogIn = () => {
-    document.location.href = "/login";
-  };
+const AppRouter = () => {
   return (
     <div className="App">
       <Routes>
@@ -99,7 +89,6 @@ const AppRouter = (props) => {
         <Route path="/news/sub03" element={<Sub03 />} />
       </Routes>
 
-      {/*글쓰기 테스트*/}
       <Routes>
         <Route path="/news/sub01/1/write" element={<NewsWrite />} />
         <Route path="/news/sub01/3/write" element={<PressWrite />} />

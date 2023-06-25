@@ -7,7 +7,7 @@ export default function Nav(props) {
 
   const onLogout = () => {
     sessionStorage.removeItem("userId");
-    document.location.href = "/";
+    window.location.href = "/";
   };
 
   const onLogIn = () => {
@@ -16,7 +16,7 @@ export default function Nav(props) {
 
   const handleLogin = () => {
     alert("로그인이 필요한 페이지 입니다.");
-    document.location.href = "/login";
+    window.location.href = "/";
   };
 
   const handleLogout = () => {};

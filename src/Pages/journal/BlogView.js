@@ -55,6 +55,7 @@ export default function NewsView() {
   const goBack = () => {
     navigate(-1);
   };
+
   return (
     <div>
       <SubTop5 />
@@ -85,7 +86,7 @@ export default function NewsView() {
             </div>
             
             <div id="myimg">
-              {image && <img src={image} style={{ width: "100%", height: "100%" }} />}
+              {Array.isArray(image) && image.length != 0 && <img src={image} style={{ width: "100%", height: "100%" }} />}
             </div>
 
             <div style={{marginTop: '60px'}}>

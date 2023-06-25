@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useState, createElement } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import "./News.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 import { getStorage, ref, getMetadata } from "firebase/storage";
+import { render } from "react-dom";
 
 export default function NewsView() {
   const [post, setPost] = useState([]);
@@ -37,8 +38,12 @@ export default function NewsView() {
   }, [id]);
 
   useEffect(() => {
-    const img = document.getElementById("myimg");
-    img.setAttribute("src", image);
+    const div = document.getElementById("myimg");
+    if (!image) {
+    } else {
+      const elem = createElement("img", { src: `${image}` });
+      render(elem, div);
+    }
   });
 
   useEffect(() => {
@@ -87,7 +92,7 @@ export default function NewsView() {
             >
               {post.content}
             </div>
-            <img id="myimg"></img>
+            <div id="myimg"></div>
           </div>
           <div>
             {fileName.map((value, index) => (

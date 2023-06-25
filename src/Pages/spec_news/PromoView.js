@@ -23,7 +23,6 @@ export default function PromoView() {
       try {
         const postRef = doc(fireStore, "promo", id);
         const snapShot = await getDoc(postRef);
-
         setPost(snapShot.data());
         setImage(snapShot.data().imageList);
         snapShot.data().fileList.forEach((item) => {
@@ -36,15 +35,6 @@ export default function PromoView() {
     };
     fetchData();
   }, [id]);
-
-  useEffect(() => {
-    const div = document.getElementById("myimg");
-    if (!image) {
-    } else {
-      const elem = createElement("img", { src: `${image}` });
-      render(elem, div);
-    }
-  });
 
   useEffect(() => {
     files.forEach((item) => {
@@ -86,11 +76,16 @@ export default function PromoView() {
             <div id="text" style={{ marginTop: "30px", lineHeight: "25px" }}>
               {post.content}
             </div>
-            <div id="myimg"></div>
-          </div>
-          <div>
+            
+            <div id="myimg">
+              {image && <img src={image} style={{ width: "100%", height: "100%" }} />}
+            </div>
+
+            <div style={{marginTop: '60px'}}>
+              첨부파일
             {fileName.map((value, index) => (
               <button
+                className="fileListBtn"
                 onClick={() => {
                   handleFile(index);
                 }}
@@ -100,6 +95,9 @@ export default function PromoView() {
               </button>
             ))}
           </div>
+
+          </div>
+
           <div
             style={{
               display: "flex",

@@ -135,6 +135,7 @@ export default function NewsWrite({isLogin}) {
         fileList: fileList,
       });
       //setContent(docRef);
+      window.location.href = "/news/sub03";
     } catch (error) {
       alert(error);
       console.log(error);

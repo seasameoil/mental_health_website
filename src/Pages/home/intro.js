@@ -17,6 +17,9 @@ export default function Intro() {
   const [promo, setPromo] = useState([]);
   const promoCollectionRef = collection(fireStore, "/promo");
 
+  const [calendar, setCalendar] = useState([]);
+  const calendarCollectionRef = collection(fireStore, "/calendar");
+
   const uniqueId = useId();
   //console.log(uniqueId);
 
@@ -47,19 +50,42 @@ export default function Intro() {
     };
 
     const getPromo = async () => {
-      const data = await getDocs(promoCollectionRef);
+      const data = await getDocs(promoCollectionRef); 
       setPromo(
         data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
+          //startDate: moment.unix(doc.data().startDate.seconds).format("YYYY-MM-DD"),
+          //endDate: moment.unix(endDateSeconds).add(endDateNanoseconds, 'nanoseconds').format("YYYY-MM-DD")
         }))
       );
       //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
       //setLeng(users.length); //data 개수만큼 page 생성
     };
+
+    const getCalendar = async () => {
+      const data = await getDocs(calendarCollectionRef);
+      setCalendar(
+        data.docs.map((doc) => {
+          const startDate = doc.data().endDate;
+          const startDateSeconds = startDate ? startDate.seconds : 0;
+          const endDate = doc.data().endDate;
+          const endDateSeconds = endDate ? endDate.seconds : 0;
+    
+          return {
+            ...doc.data(),
+            id: doc.id,
+            startDate: moment.unix(startDateSeconds).format("YYYY-MM-DD"),
+            endDate: moment.unix(endDateSeconds).format("YYYY-MM-DD")
+          };
+        })
+      );
+    };
+
     getNoti();
     getRelate();
     getPromo();
+    getCalendar();
   }, []);
 
   //선택한 공지사항 종류
@@ -71,10 +97,32 @@ export default function Intro() {
 
   //캘린더
   const [date, showDate] = useState(new Date());
+  //startdate와 enddate를 mark 배열에 저장
+  const mark = [];
+  calendar.forEach(({startDate, endDate}) => {
+    const dates = getDatesBetween(startDate, endDate);
+    mark.push(...dates);
+  });
+  //console.log(mark)
 
-  console.log(notification)
-  console.log(relate)
-  console.log(promo)
+  // 날짜 배열을 가져오는 함수
+  function getDatesBetween(start, end) {
+    const _dates = [];
+    let currentDate = moment(start);
+    while (currentDate.isSameOrBefore(end)) {
+      _dates.push(currentDate.format('YYYY-MM-DD'));
+      currentDate = currentDate.add(1, 'days');
+    }
+    return _dates;
+  }
+  
+  const dot_style = (color) => ({
+    width: '4px',
+    height: '4px',
+    backgroundColor: color,
+    borderRadius: '50%',
+    marginLeft: '0.063rem',
+  });
 
   return (
     <div className="home_container">
@@ -340,14 +388,31 @@ export default function Intro() {
       {/*캘린더*/}
       <div className="calendar_container">
         <div>
-          <h1 style={{ textAlign: "center" }}>일정 안내</h1>
-          <Calendar
-            onChange={showDate} // useState로 포커스 변경 시 현재 날짜 받아오기
-            formatDay={(locale, date) => moment(date).format("DD")} // 날'일' 제외하고 숫자만 보이도록 설정
-            value={date}
-            navigationLabel={null}
-            showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
-          />
+          <div>
+            <h1 style={{ textAlign: "center" }}>일정 안내</h1>
+            <Calendar
+              onChange={showDate} // useState로 포커스 변경 시 현재 날짜 받아오기
+              formatDay={(locale, date) => moment(date).format("DD")} // 날'일' 제외하고 숫자만 보이도록 설정
+              value={date}
+              navigationLabel={null}
+              showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
+            />
+          </div>
+          <div>
+            {calendar.map((item) => {
+              const start = moment(item.startDate, 'YYYY.MM.DD');
+              const end = moment(item.endDate, 'YYYY.MM.DD');
+              //isBetween 메소드로 특정 기간 내에 해당하는지 판단
+              //[]:시작일과 종료일 포함한다는 뜻
+              if (moment(date).isBetween(start, end, null, '[]')) {
+                return (
+                <div className="calendarContent_container"> 
+                  <div style={{fontWeight: 'bold', color: 'orange', marginBottom: '5px'}}>{moment(date).format("YYYY-MM-DD")}</div>
+                  <div>{item.content}</div>
+                </div>);
+              }
+            })}
+          </div>
         </div>
       </div>
     </div>

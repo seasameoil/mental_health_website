@@ -34,7 +34,7 @@ export default function BlogWrite() {
   const fileListRef = ref(storage, "files/");
 
   const q = query(
-    collection(fireStore, "promo"),
+    collection(fireStore, "blog"),
     orderBy("num", "desc"),
     limit(1)
   );
@@ -127,7 +127,7 @@ export default function BlogWrite() {
         fileList: fileList,
       });
       //setContent(docRef);
-      window.location.href = "/blog";
+      window.location.href = "/journal/blog";
     } catch (error) {
       alert(error);
       console.log(error);

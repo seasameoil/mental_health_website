@@ -124,50 +124,6 @@ export default function Nav(props) {
                   <Link to="/login" style={{ fontWeight: "bold", color: 'orange', width: '70px' }} onClick={isLogin ? onLogout : onLogIn}>
                     {isLogin ? "로그아웃" : "로그인"}
                   </Link>
-                  {/*
-                  <ul>
-                    <li>
-                      <Link
-                        to="/news/sub01/1/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        학회 공지사항 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub01/2/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        관련 공지사항 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub01/3/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        보도자료 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub03/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        홍보게시판 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/blog/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        블로그 글작성
-                      </Link>
-                    </li>
-                  </ul>
-  */}
                 </li>
 
 

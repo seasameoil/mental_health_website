@@ -86,6 +86,12 @@ export default function Sub01_1() {
               </table>
             </div>
 
+            <div className="writingIcon" style={{marginTop: '20px', display: 'flex', justifyContent: 'flex-end'}}>
+              <Link to="/blog/write">
+                <button style={{background: 'rgb(117, 117, 117)', border: 'none', color: 'white', width: '80px', height: '30px', borderRadius: '10px', cursor: 'pointer'}}>글쓰기</button>
+              </Link>
+            </div>
+
             <div className="board_pagination">
               <Pagination
                 activePage={page}

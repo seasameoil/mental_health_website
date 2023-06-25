@@ -111,7 +111,7 @@ export default function Nav(props) {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/journal/sub01/1" style={{ fontWeight: "bold" }}>
+                  <Link to="/journal/blog" style={{ fontWeight: "bold" }}>
                     블로그
                   </Link>
                 </li>

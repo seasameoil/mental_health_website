@@ -21,7 +21,7 @@ export default function NewsView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRef = doc(fireStore, "relate", id);
+        const postRef = doc(fireStore, "/relate", id);
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());

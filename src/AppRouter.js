@@ -41,7 +41,6 @@ import Sub02_2_info from "./Pages/information/Sub02_2_info";
 import Sub01_1_edu from "./Pages/education/Sub01_1_edu";
 import Sub04_1_edu from "./Pages/education/Sub04_1_edu";
 //(5)협회지 및 블로그
-import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 import BlogView from "./Pages/journal/BlogView";
 import BlogList from "./Pages/journal/BlogList";
 //(6)비회원선정
@@ -116,7 +115,6 @@ const AppRouter = (props) => {
       </Routes>
 
       <Routes>
-        <Route path="/journal/sub01/1" element={<Sub01_1_journal />} />
         <Route path="/journal/blog" element={<BlogList />} />
         <Route path="/journal/blog/:id" element={<BlogView />} />
       </Routes>

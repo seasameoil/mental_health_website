@@ -135,7 +135,7 @@ export default function BlogWrite({isLogin}) {
         fileList: fileList,
       });
       //setContent(docRef);
-      window.location.href = "/journal/blog";
+      navigate("/journal/blog");
     } catch (error) {
       alert(error);
       console.log(error);

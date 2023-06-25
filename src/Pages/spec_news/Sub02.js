@@ -11,16 +11,15 @@ export default function Sub02() {
       <div style={{ display: "flex" }}>
         <Category2 />
         <div
-          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+          style={{width: "100%", padding: "0 60px" }}
         >
           <div
             style={{
               display: "flex",
-              padding: "50px 0",
-              backgroundColor: "skyblue",
+              padding: "50px 0"
             }}
           >
-            <div style={{ display: "flex", backgroundColor: "white" }}>
+            <div style={{ display: "flex"}}>
               <BrownBar />
               <h3>2023년 한국임상심리학회 연간일정표</h3>
             </div>

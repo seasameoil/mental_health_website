@@ -11,10 +11,10 @@ export default function Sub01_1_non() {
             <SubTop6 />
             <div style={{display: 'flex'}}>
                 <Category6 />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{display: 'flex', padding: '50px 0'}}>
                         <div>
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
+                            <div style={{display: 'flex'}}>
                                 <BrownBar />
                                 <h3>정회원 (연회비 : 200,000원)</h3>
                             </div>

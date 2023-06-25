@@ -9,9 +9,9 @@ export default function Sub04_2_intro() {
             <SubTop />
             <div style={{display: 'flex'}}>
                 <Category />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{padding: '50px 0', backgroundColor: 'skyblue'}}>
-                        <div style={{display: 'flex', backgroundColor: 'white'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{padding: '50px 0'}}>
+                        <div style={{display: 'flex'}}>
                             <BrownBar />
                             <h3>윤리 강령</h3>
                         </div>

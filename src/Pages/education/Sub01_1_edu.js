@@ -11,8 +11,8 @@ export default function Sub01_1_edu() {
             <SubTop4 />
             <div style={{display: 'flex'}}>
                 <Category4 />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{display: 'flex', padding: '50px 0'}}>
                         <div>
                             <div style={{display: 'flex', backgroundColor: 'white'}}>
                                 <BrownBar />

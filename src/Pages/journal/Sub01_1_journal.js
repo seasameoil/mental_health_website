@@ -11,10 +11,10 @@ export default function Sub01_1_journal() {
             <SubTop5 />
             <div style={{display: 'flex'}}>
                 <Category5 />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{display: 'flex', padding: '50px 0'}}>
                         <div>
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
+                            <div style={{display: 'flex'}}>
                                 <BrownBar />
                                 <h3>학회지 소개</h3>
                             </div>
@@ -22,7 +22,7 @@ export default function Sub01_1_journal() {
                                 본 학회는 한국연구재단 등재지인 'Korean Journal of Clinical Psychology' 을 연간 4회 발간하고 있습니다.
                             </p>
 
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
+                            <div style={{display: 'flex'}}>
                                 <BrownBar />
                                 <h3>학회지 구독 안내</h3>
                             </div>

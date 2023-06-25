@@ -9,13 +9,12 @@ export default function Sub01_2() {
       <div style={{ display: "flex" }}>
         <Category2 />
         <div
-          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+          style={{width: "100%", padding: "0 60px" }}
         >
           <div
             style={{
               display: "flex",
-              padding: "50px 0",
-              backgroundColor: "skyblue",
+              padding: "50px 0"
             }}
           >
             <div></div>

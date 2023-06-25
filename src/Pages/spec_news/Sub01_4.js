@@ -49,7 +49,6 @@ export default function Sub01_4() {
         <Category2 />
         <div
           style={{
-            backgroundColor: "pink",
             width: "100%",
             padding: "50px 60px",
           }}
@@ -66,7 +65,7 @@ export default function Sub01_4() {
             ))}
           </div>
 
-          <div className="board_pagination">
+          <div className="board_pagination" style={{marginTop: '100px'}}>
             <Pagination
               activePage={page}
               itemsCountPerPage={itemsPerPage}

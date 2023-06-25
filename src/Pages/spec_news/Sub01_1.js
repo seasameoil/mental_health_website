@@ -54,9 +54,9 @@ export default function Sub01_1() {
       <div style={{ display: "flex" }}>
         <Category2 />
         <div
-          style={{ backgroundColor: "pink", width: "100%", padding: "0 60px" }}
+          style={{width: "100%", padding: "0 60px" }}
         >
-          <div style={{ padding: "50px 0", backgroundColor: "white" }}>
+          <div style={{ padding: "50px 0"}}>
             <div style={{ width: "100%" }}>
               <table>
                 <thead>

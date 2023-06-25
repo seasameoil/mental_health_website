@@ -75,7 +75,7 @@ export default function Sub01_3() {
                       <Link to={`/news/press/${value.id}`}>
                         <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
-                      <td>{value.releaseDate.toDate().toLocaleDateString()}</td>
+                      <td style={{textAlign: 'center'}}>{value.releaseDate.toDate().toLocaleDateString()}</td>
                       <td>{value.requestDate.toDate().toLocaleDateString()}</td>
                       <td>{value.depart}</td>
                     </tr>

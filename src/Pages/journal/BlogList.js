@@ -59,7 +59,6 @@ export default function Sub01_1() {
               <table>
                 <thead>
                   <th>번호</th>
-                  <th>분류</th>
                   <th>제목</th>
                   <th>파일</th>
                   <th>이름</th>
@@ -72,11 +71,10 @@ export default function Sub01_1() {
                   {users.slice(startIndex, endIndex).map((value, index) => (
                     <tr key={index}>
                       <td>{value.num}</td>
-                      <td>{value.type}</td>
                       <Link to={`/journal/blog/${value.id}`}>
                         <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
-                      <td>-</td> {/*파일*/}
+                      <td>{value.fileList.length > 0 && <img src="/img/fileImg.jpg" style={{width: '15px', height: '15px', display: 'block', margin: '0 auto'}}/>}</td> {/*파일*/}
                       <td>{value.writter}</td>
                       <td>{value.uploadTime.toDate().toLocaleDateString()}</td>
                       <td>{value.views}</td>

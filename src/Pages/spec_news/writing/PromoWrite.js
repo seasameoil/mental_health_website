@@ -1,3 +1,4 @@
+import './writing.css'
 import { useEffect, useState } from "react";
 import {
   Timestamp,
@@ -133,7 +134,8 @@ export default function NewsWrite() {
   };
 
   return (
-    <div>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <div className="writingForm">
       <div>
         제목
         <input value={title} onChange={handleTitle}></input>
@@ -167,6 +169,7 @@ export default function NewsWrite() {
       <div>
         <button onClick={handleSubmit}>등록</button>
       </div>
+    </div>
     </div>
   );
 }

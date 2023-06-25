@@ -11,10 +11,10 @@ export default function Sub04_1_intro() {
             <SubTop />
             <div style={{display: 'flex'}}>
                 <Category />
-                <div style={{backgroundColor: 'pink', width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0', backgroundColor: 'skyblue'}}>
+                <div style={{width: '100%', padding: '0 60px'}}>
+                    <div style={{display: 'flex', padding: '50px 0'}}>
                         <div>
-                            <div style={{display: 'flex', backgroundColor: 'white'}}>
+                            <div style={{display: 'flex'}}>
                                 <BrownBar />
                                 <h3>사단법인 한국정신건강관리협회 정관 (2022. 12. 21. 제정)</h3>
                             </div>

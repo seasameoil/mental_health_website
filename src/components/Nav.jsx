@@ -11,12 +11,12 @@ export default function Nav(props) {
   };
 
   const onLogIn = () => {
-    document.location.href = "/login";
+    //document.location.href = "/login";
   };
 
   const handleLogin = () => {
     alert("로그인이 필요한 페이지 입니다.");
-    document.location.href = "/";
+    document.location.href = "/login";
   };
 
   const handleLogout = () => {};

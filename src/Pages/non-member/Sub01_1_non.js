@@ -12,28 +12,18 @@ export default function Sub01_1_non() {
             <div style={{display: 'flex'}}>
                 <Category6 />
                 <div style={{width: '100%', padding: '0 60px'}}>
-                    <div style={{display: 'flex', padding: '50px 0'}}>
-                        <div>
-                            <div style={{display: 'flex'}}>
+                <div className='content_img'>
+                        <img src="/img/2.jpeg" />
+                        <img src="/img/1.jpeg" />
+                    </div>
+                    <div style={{display: 'flex'}}>
+                
+                        <div style={{marginBottom: '100px'}}>
+                            <div style={{display: 'flex', marginBottom: '10px'}}>
                                 <BrownBar />
-                                <h3>정회원 (연회비 : 200,000원)</h3>
+                                <h3>사단법인 한국정신건강관리협회 회원가입 신청하기</h3>
                             </div>
-                            <p>
-                                <strong>자격 요건</strong>
-                                <br></br>
-                                본회가 정한 심화 교육과정 이수 및 연회비 납부
-                            </p>
-                            <p>
-                                <strong>혜택</strong>
-                                <br></br>
-                                본회의 의결권 및 선거권 보유
-                                <br></br>
-                                본회의 교육 및 연수 프로그램 참여
-                                <br></br>
-                                국제 학술지 구독
-                                <br></br>
-                                심리 상담 및 임상 서비스 제공
-                            </p>
+                            <a href="https://forms.gle/WCGJtyDoJBvUm2du9" className='googleForm'>회원가입 신청서 작성하기</a>
                         </div>
 
                     </div>

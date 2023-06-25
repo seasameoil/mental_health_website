@@ -58,7 +58,7 @@ export default function Nav() {
                         <Link to="/journal/sub01/1" style={{fontWeight: 'bold'}}>블로그</Link>
                     </li>
                     <li>
-                        <Link to="/nonMember/sub01/1" style={{fontWeight: 'bold'}}>비회원선정</Link>
+                        <Link to="/nonMember/sub01/1" style={{fontWeight: 'bold'}}>회원가입 신청</Link>
                     </li>
                   </ul>
               </div>

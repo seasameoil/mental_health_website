@@ -8,17 +8,23 @@ import Calendar from "react-calendar";
 import moment from "moment";
 
 export default function Intro() {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "/notification");
+  const [notification, setNoti] = useState([]);
+  const notiCollectionRef = collection(fireStore, "/notification");
+
+  const [relate, setRelate] = useState([]);
+  const relateCollectionRef = collection(fireStore, "/relate");
+
+  const [promo, setPromo] = useState([]);
+  const promoCollectionRef = collection(fireStore, "/promo");
 
   const uniqueId = useId();
   //console.log(uniqueId);
 
   useEffect(() => {
     //console.log(fireStore);
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(
+    const getNoti = async () => {
+      const data = await getDocs(notiCollectionRef);
+      setNoti(
         data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -27,8 +33,41 @@ export default function Intro() {
       //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
       //setLeng(users.length); //data 개수만큼 page 생성
     };
-    getUsers();
+
+    const getRelate = async () => {
+      const data = await getDocs(relateCollectionRef);
+      setRelate(
+        data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
+      //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
+      //setLeng(users.length); //data 개수만큼 page 생성
+    };
+
+    const getPromo = async () => {
+      const data = await getDocs(promoCollectionRef);
+      setPromo(
+        data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
+      //setLeng(80) //data 개수만큼 page 생성, 나중에 주석 처리
+      //setLeng(users.length); //data 개수만큼 page 생성
+    };
+    getNoti();
+    getRelate();
+    getPromo();
   }, []);
+
+  //선택한 공지사항 종류
+  const [selectedItem, setSelectedItem] = useState("학회 공지사항"); // 선택된 항목 상태 초기값은 빈 문자열로 설정
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item); // 선택된 항목 업데이트
+  };
 
   //캘린더
   const [date, showDate] = useState(new Date());
@@ -67,7 +106,7 @@ export default function Intro() {
             </div>
           </div>
         </Link>
-        <Link to="/journal/sub01/1">
+        <Link to="/journal/blog">
           <div
             className="shortcuts"
             style={{ backgroundImage: 'url("../../img/11.jpeg")' }}
@@ -102,11 +141,19 @@ export default function Intro() {
       {/*공지 */}
       <div style={{ display: "flex" }}>
         <div className="home_notification">
-          <h2>공지사항</h2>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <h2>공지사항</h2>
+            <div style={{fontSize: '0.9rem', display: 'flex'}}>
+              <div onClick={() => handleItemClick("학회 공지사항")}>학회 공지사항 | &nbsp;</div>
+              <div onClick={() => handleItemClick("관련 공지사항")}> 관련 공지사항 | &nbsp;</div>
+              <div onClick={() => handleItemClick("홍보게시판")}>홍보게시판</div>
+            </div>
+          </div>
           <div className="table_container">
+            {selectedItem === "학회 공지사항" && (
             <div>
-              {/*pagination을 위해 15개씩 slice*/}
-              {users.slice(0, 6).map((value) => (
+              {/*pagination을 위해 6개씩 slice*/}
+              {notification.slice(0, 6).map((value) => (
                 <div
                   key={uniqueId}
                   style={{
@@ -123,7 +170,54 @@ export default function Intro() {
                 </div>
               ))}
             </div>
+            )}
+
+            {selectedItem === "관련 공지사항" && (
+            <div>
+              {/*pagination을 위해 6개씩 slice*/}
+              {relate.slice(0, 6).map((value) => (
+                <div
+                  key={uniqueId}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <Link to={`/news/${value.id}`}>
+                    <div>{value.title}</div>
+                  </Link>
+
+                  <div>{value.writter}</div>
+                </div>
+              ))}
+            </div>
+            )}
+
+            {selectedItem === "홍보게시판" && (
+            <div>
+              {/*pagination을 위해 6개씩 slice*/}
+              {promo.slice(0, 6).map((value) => (
+                <div
+                  key={uniqueId}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <Link to={`/news/${value.id}`}>
+                    <div>{value.title}</div>
+                  </Link>
+
+                  <div>{value.writter}</div>
+                </div>
+              ))}
+            </div>
+            )}
+
           </div>
+            
         </div>
 
         <div

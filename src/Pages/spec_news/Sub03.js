@@ -9,7 +9,7 @@ import "./pagination.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_1() {
+export default function Sub03() {
   const [promos, setPromos] = useState([]);
   const promosRef = collection(fireStore, "promo");
   {
@@ -74,7 +74,7 @@ export default function Sub01_1() {
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
                       <Link to={`/news/promo/${value.id}`}>
-                        <td>{value.title}</td>
+                        <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>

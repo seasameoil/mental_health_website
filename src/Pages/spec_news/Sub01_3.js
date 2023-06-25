@@ -73,7 +73,7 @@ export default function Sub01_3() {
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
                       <Link to={`/news/press/${value.id}`}>
-                        <td>{value.title}</td>
+                        <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
                       <td>{value.releaseDate.toDate().toLocaleDateString()}</td>
                       <td>{value.requestDate.toDate().toLocaleDateString()}</td>

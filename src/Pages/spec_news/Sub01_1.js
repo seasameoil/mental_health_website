@@ -78,7 +78,7 @@ export default function Sub01_1(props) {
                       <td>{value.num}</td>
                       <td>{value.type}</td>
                       <Link to={`/news/${value.id}`}>
-                        <td>{value.title}</td>
+                        <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}
                       <td>{value.writter}</td>

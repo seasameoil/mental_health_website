@@ -1,4 +1,73 @@
 .writingForm {
-    background-color: pink;
-    
+    padding: 50px;
+}
+
+.writingForm label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.writingForm .writingTitle input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.writingForm textarea {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.writingForm select {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.writingForm .writingWriter input {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.writingForm input[type='file'] {
+    width: 300px;
+}
+
+.writingForm .writingTitle,
+.writingForm .writingContent,
+.writingForm .writingClassification,
+.writingForm .writingWriter,
+.writingForm .writingImg,
+.writingForm .writingFile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.writingForm .postArticleBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.writingForm .postArticleBtn button {
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: rgb(117, 117, 117);
+    border: none;
+    font-weight: bold;
+    margin: 30px 0px;
+    color: white;
+}
+
+.writingForm .uploadBtn {
+    width: 150px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border: none;
 }

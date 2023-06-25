@@ -6,7 +6,7 @@ export default function SubTop6() {
             <div className='top_img' style={{backgroundImage: 'url("../../img/9.jpeg")'}}>
                 <div>
                     <div className='content' style={{fontWeight: 'bold'}}>ABOUT</div>
-                    <div className='content' style={{fontSize: '3rem'}}>비회원선정</div>
+                    <div className='content' style={{fontSize: '3rem'}}>회원가입 신청</div>
                 </div>
             </div>
         </div>

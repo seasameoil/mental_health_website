@@ -124,7 +124,7 @@ export default function Nav(props) {
                 </li>
                 <li>
                   <Link to="/nonMember/sub01/1" style={{ fontWeight: "bold" }}>
-                    비회원선정
+                    회원가입 신청
                   </Link>
                 </li>
                 <li>

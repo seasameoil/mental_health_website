@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AppRouter from "./AppRouter";
+import Nav from "./components/Nav";
 
 import Footer from "./components/footer/footer";
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <Nav />
       <AppRouter isLogin={isLogin} />
       <Footer />
     </>

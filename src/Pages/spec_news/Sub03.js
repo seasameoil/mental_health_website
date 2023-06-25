@@ -73,7 +73,7 @@ export default function Sub01_1() {
                   {promos.slice(startIndex, endIndex).map((value) => (
                     <tr key={uniqueId}>
                       <td>{value.num}</td>
-                      <Link to={`/news/promo/${value.num}`}>
+                      <Link to={`/news/promo/${value.id}`}>
                         <td>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}

@@ -1,0 +1,8 @@
+.nextBtn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0px 20px;
+}

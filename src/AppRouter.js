@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Router, Routes } from "react-router-dom";
 
 //Home
+import Intro from "./Pages/home/intro";
 import Home from "./Pages/home/home";
 //(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
@@ -56,6 +57,7 @@ const AppRouter = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/intro" element={<Intro />} />
       </Routes>
 
       <Routes>

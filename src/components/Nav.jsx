@@ -128,9 +128,10 @@ export default function Nav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login" onClick={isLogin ? onLogout : onLogIn}>
+                  <Link to="/login" style={{ fontWeight: "bold", color: 'orange', width: '50px' }} onClick={isLogin ? onLogout : onLogIn}>
                     {isLogin ? "로그아웃" : "로그인"}
                   </Link>
+                  {/*
                   <ul>
                     <li>
                       <Link
@@ -165,7 +166,14 @@ export default function Nav(props) {
                       </Link>
                     </li>
                   </ul>
+  */}
                 </li>
+
+
+                  <Link to="/intro" style={{ fontWeight: "bold", color: 'orange', width: '50px' }}>
+                    INTRO
+                  </Link>
+
               </ul>
             </div>
           </div>

@@ -72,6 +72,10 @@ export default function Intro() {
   //캘린더
   const [date, showDate] = useState(new Date());
 
+  console.log(notification)
+  console.log(relate)
+  console.log(promo)
+
   return (
     <div className="home_container">
       <div className="video">소개 영상</div>
@@ -184,7 +188,7 @@ export default function Intro() {
                     marginBottom: "7px",
                   }}
                 >
-                  <Link to={`/news/${value.id}`}>
+                  <Link to={`/news/relate/${value.id}`}>
                     <div>{value.title}</div>
                   </Link>
 
@@ -206,7 +210,7 @@ export default function Intro() {
                     marginBottom: "7px",
                   }}
                 >
-                  <Link to={`/news/${value.id}`}>
+                  <Link to={`/news/promo/${value.id}`}>
                     <div>{value.title}</div>
                   </Link>
 

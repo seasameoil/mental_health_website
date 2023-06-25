@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createElement } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
 import { getStorage, ref, getMetadata } from "firebase/storage";
+import { render } from "react-dom";
 
 import "./NewsView.css";
 import "./News.css";
@@ -37,8 +38,12 @@ export default function PromoView() {
   }, [id]);
 
   useEffect(() => {
-    const img = document.getElementById("myimg");
-    img.setAttribute("src", image);
+    const div = document.getElementById("myimg");
+    if (!image) {
+    } else {
+      const elem = createElement("img", { src: `${image}` });
+      render(elem, div);
+    }
   });
 
   useEffect(() => {
@@ -81,7 +86,7 @@ export default function PromoView() {
             <div id="text" style={{ marginTop: "30px", lineHeight: "25px" }}>
               {post.content}
             </div>
-            <img id="myimg"></img>
+            <div id="myimg"></div>
           </div>
           <div>
             {fileName.map((value, index) => (

@@ -4,14 +4,14 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import Pagination from "react-js-pagination";
 import { Link, Navigate } from "react-router-dom";
 
-import "./News.css";
+import "./Blog.css";
 import "./pagination.css";
-import SubTop2 from "../../components/sub_top/sub_top2";
-import Category2 from "../../components/category/category2";
+import Category5 from "../../components/category/category5";
+import SubTop5 from "../../components/sub_top/sub_top5";
 
-export default function Sub01_2() {
+export default function Sub01_1() {
   const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "relate");
+  const usersCollectionRef = collection(fireStore, "blog");
   {
     /*수정해야 함*/
   }
@@ -50,9 +50,9 @@ export default function Sub01_2() {
 
   return (
     <div className="sub02_news">
-      <SubTop2 />
+      <SubTop5 />
       <div style={{ display: "flex" }}>
-        <Category2 />
+        <Category5 />
         <div style={{ width: "100%", padding: "0 60px" }}>
           <div style={{ padding: "50px 0" }}>
             <div style={{ width: "100%" }}>
@@ -73,7 +73,7 @@ export default function Sub01_2() {
                     <tr key={index}>
                       <td>{value.num}</td>
                       <td>{value.type}</td>
-                      <Link to={`/news/relate/${value.id}`}>
+                      <Link to={`/journal/blog/${value.id}`}>
                         <td>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}

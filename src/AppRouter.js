@@ -24,6 +24,7 @@ import Sub05_6_intro from "./Pages/introduce/Sub05_6_intro";
 import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
 //(2)협회소식
 import NewsView from "./Pages/spec_news/NewsView";
+import RelateView from "./Pages/spec_news/RelateView";
 import PromoView from "./Pages/spec_news/PromoView";
 import PressView from "./Pages/spec_news/PressView";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
@@ -39,15 +40,17 @@ import Sub02_2_info from "./Pages/information/Sub02_2_info";
 //(4)학술행사/교육
 import Sub01_1_edu from "./Pages/education/Sub01_1_edu";
 import Sub04_1_edu from "./Pages/education/Sub04_1_edu";
-//(5)협회지
+//(5)협회지 및 블로그
 import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
+import BlogView from "./Pages/journal/BlogView";
+import BlogList from "./Pages/journal/BlogList";
 //(6)비회원선정
 import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
 import Auth from "./Pages/login/Login";
-import CheckLogin from "./Pages/login/checkLogin";
 //글쓰기 테스트
 import NewsWrite from "./Pages/spec_news/writing/NewsWrite";
+import RelateWrite from "./Pages/spec_news/writing/RelateWrite";
 import PressWrite from "./Pages/spec_news/writing/PressWrite";
 import PromoWrite from "./Pages/spec_news/writing/PromoWrite";
 import BlogWrite from "./Pages/spec_news/writing/BlogWrite";
@@ -82,6 +85,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
+        <Route path="/news/relate/:id" element={<RelateView />} />
         <Route path="/news/sub01/2" element={<Sub01_2 />} />
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
@@ -93,6 +97,7 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/news/sub01/1/write" element={<NewsWrite />} />
+        <Route path="/news/sub01/2/write" element={<RelateWrite />} />
         <Route path="/news/sub01/3/write" element={<PressWrite />} />
         <Route path="/news/sub03/write" element={<PromoWrite />} />
         <Route path="/blog/write" element={<BlogWrite />} />
@@ -111,6 +116,8 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/journal/sub01/1" element={<Sub01_1_journal />} />
+        <Route path="/journal/blog" element={<BlogList />} />
+        <Route path="/journal/blog/:id" element={<BlogView />} />
       </Routes>
 
       <Routes>

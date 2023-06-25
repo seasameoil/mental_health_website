@@ -7,16 +7,16 @@ export default function Nav(props) {
 
   const onLogout = () => {
     sessionStorage.removeItem("userId");
-    document.location.href = "/";
+    window.location.href = "/";
   };
 
   const onLogIn = () => {
-    document.location.href = "/login";
+    //document.location.href = "/login";
   };
 
   const handleLogin = () => {
     alert("로그인이 필요한 페이지 입니다.");
-    document.location.href = "/login";
+    window.location.href = "/";
   };
 
   const handleLogout = () => {};
@@ -121,6 +121,11 @@ export default function Nav(props) {
                   <Link to="/journal/sub01/1" style={{ fontWeight: "bold" }}>
                     블로그
                   </Link>
+                  <ul>
+                    <li>
+                      <Link to="/journal/blog">블로그</Link>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <Link to="/nonMember/sub01/1" style={{ fontWeight: "bold" }}>
@@ -138,7 +143,15 @@ export default function Nav(props) {
                         to="/news/sub01/1/write"
                         onClick={isLogin ? handleLogout : handleLogin}
                       >
-                        공지사항 글작성
+                        학회 공지사항 글작성
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/news/sub01/2/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        관련 공지사항 글작성
                       </Link>
                     </li>
                     <li>
@@ -154,7 +167,7 @@ export default function Nav(props) {
                         to="/news/sub03/write"
                         onClick={isLogin ? handleLogout : handleLogin}
                       >
-                        보도자료 글작성
+                        홍보게시판 글작성
                       </Link>
                     </li>
                     <li>

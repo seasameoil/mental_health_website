@@ -18,7 +18,7 @@ import {
   listAll,
 } from "firebase/storage";
 
-//공지사항 게시판
+//관련 공지사항 게시판
 export default function NewsWrite() {
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
@@ -35,7 +35,7 @@ export default function NewsWrite() {
   const fileListRef = ref(storage, "files/");
 
   const q = query(
-    collection(fireStore, "notification"),
+    collection(fireStore, "relate"),
     orderBy("num", "desc"),
     limit(1)
   );
@@ -123,7 +123,7 @@ export default function NewsWrite() {
 
   const handleSubmit = async (e) => {
     try {
-      const docRef = await addDoc(collection(fireStore, "notification"), {
+      const docRef = await addDoc(collection(fireStore, "relate"), {
         title: title,
         content: content,
         num: num,
@@ -135,7 +135,7 @@ export default function NewsWrite() {
         fileList: fileList,
       });
       //setContent(docRef);
-      window.location.href = "/news/sub01/1";
+      window.location.href = "/news/sub01/2";
     } catch (error) {
       alert(error);
       console.log(error);

@@ -1,25 +1,34 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useState, createElement } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
-
 import "./NewsView.css";
 import "./News.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
+import { getStorage, ref, getMetadata } from "firebase/storage";
+import { render } from "react-dom";
 
-export default function PressView() {
+export default function NewsView() {
   const [post, setPost] = useState([]);
   const uniqueId = useId();
   const { id } = useParams();
+  const storage = getStorage();
+  const [image, setImage] = useState();
+  const [files, setFiles] = useState([]);
+  const [fileName, setFilesName] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRef = doc(fireStore, "press", id);
+        const postRef = doc(fireStore, "relate", id);
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
+        setImage(snapShot.data().imageList);
+        snapShot.data().fileList.forEach((item) => {
+          setFiles((prev) => [...prev, item]);
+        });
         await updateDoc(postRef, { views: Number(snapShot.data().views) + 1 });
       } catch (err) {
         console.error("Error fetching collection data: ", err);
@@ -27,7 +36,29 @@ export default function PressView() {
     };
     fetchData();
   }, [id]);
-  //console.log(post);
+
+  useEffect(() => {
+    const div = document.getElementById("myimg");
+    if (!image) {
+    } else {
+      const elem = createElement("img", { src: `${image}` });
+      render(elem, div);
+    }
+  });
+
+  useEffect(() => {
+    files.forEach((item) => {
+      const imageRef = ref(storage, item);
+      getMetadata(imageRef).then((metaData) => {
+        setFilesName((prev) => [...prev, metaData.name]);
+      });
+    });
+  }, [files]);
+
+  const handleFile = (props) => {
+    window.open(`${files[props]}`);
+    //console.log(files[props]);
+  };
 
   const navigate = useNavigate();
   const goBack = () => {
@@ -50,11 +81,30 @@ export default function PressView() {
                 color: "grey",
               }}
             >
-              {post.num} | {post.depart} | 조회 {post.views}
+              {post.num} | {post.type} | {post.writter} | 조회 {post.views}
             </div>
-            <div id="text" style={{ marginTop: "30px", lineHeight: "25px" }}>
+            <div
+              id="text"
+              style={{
+                marginTop: "30px",
+                lineHeight: "25px",
+              }}
+            >
               {post.content}
             </div>
+            <div id="myimg"></div>
+          </div>
+          <div>
+            {fileName.map((value, index) => (
+              <button
+                onClick={() => {
+                  handleFile(index);
+                }}
+                key={index}
+              >
+                {value}
+              </button>
+            ))}
           </div>
           <div
             style={{

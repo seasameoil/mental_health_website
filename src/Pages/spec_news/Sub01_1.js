@@ -2,14 +2,16 @@ import React, { useEffect, useId, useState } from "react";
 import { fireStore } from "../../Firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import Pagination from "react-js-pagination";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./News.css";
 import "./pagination.css";
 import SubTop2 from "../../components/sub_top/sub_top2";
 import Category2 from "../../components/category/category2";
 
-export default function Sub01_1() {
+export default function Sub01_1(props) {
+  const isLogin = props.isLogin;
+  console.log(isLogin)
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(fireStore, "/notification");
   {
@@ -86,6 +88,12 @@ export default function Sub01_1() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="writingIcon" style={{marginTop: '20px', display: 'flex', justifyContent: 'flex-end'}}>
+              <Link to="/news/sub01/1/write">
+                <button style={{background: 'rgb(117, 117, 117)', border: 'none', color: 'white', width: '80px', height: '30px', borderRadius: '10px', cursor: 'pointer'}}>글쓰기</button>
+              </Link>
             </div>
 
             <div className="board_pagination">

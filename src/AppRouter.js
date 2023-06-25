@@ -23,6 +23,7 @@ import Sub05_6_intro from "./Pages/introduce/Sub05_6_intro";
 import Sub05_7_intro from "./Pages/introduce/Sub05_7_intro";
 //(2)협회소식
 import NewsView from "./Pages/spec_news/NewsView";
+import RelateView from "./Pages/spec_news/RelateView";
 import PromoView from "./Pages/spec_news/PromoView";
 import PressView from "./Pages/spec_news/PressView";
 import Sub01_1 from "./Pages/spec_news/Sub01_1";
@@ -44,9 +45,9 @@ import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 import Sub01_1_non from "./Pages/non-member/Sub01_1_non";
 //로그인 관련
 import Auth from "./Pages/login/Login";
-import CheckLogin from "./Pages/login/checkLogin";
 //글쓰기 테스트
 import NewsWrite from "./Pages/spec_news/writing/NewsWrite";
+import RelateWrite from "./Pages/spec_news/writing/RelateWrite";
 import PressWrite from "./Pages/spec_news/writing/PressWrite";
 import PromoWrite from "./Pages/spec_news/writing/PromoWrite";
 import BlogWrite from "./Pages/spec_news/writing/BlogWrite";
@@ -80,6 +81,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
         <Route path="/news/sub01/1" element={<Sub01_1 />} />
+        <Route path="/news/relate/:id" element={<RelateView />} />
         <Route path="/news/sub01/2" element={<Sub01_2 />} />
         <Route path="/news/press/:id" element={<PressView />} />
         <Route path="/news/sub01/3" element={<Sub01_3 />} />
@@ -91,6 +93,7 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/news/sub01/1/write" element={<NewsWrite />} />
+        <Route path="/news/sub01/2/write" element={<RelateWrite />} />
         <Route path="/news/sub01/3/write" element={<PressWrite />} />
         <Route path="/news/sub03/write" element={<PromoWrite />} />
         <Route path="/blog/write" element={<BlogWrite />} />

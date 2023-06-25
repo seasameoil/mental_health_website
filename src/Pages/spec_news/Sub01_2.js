@@ -11,7 +11,7 @@ import Category2 from "../../components/category/category2";
 
 export default function Sub01_2() {
   const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(fireStore, "/notification");
+  const usersCollectionRef = collection(fireStore, "relate");
   {
     /*수정해야 함*/
   }
@@ -53,10 +53,8 @@ export default function Sub01_2() {
       <SubTop2 />
       <div style={{ display: "flex" }}>
         <Category2 />
-        <div
-          style={{width: "100%", padding: "0 60px" }}
-        >
-          <div style={{ padding: "50px 0"}}>
+        <div style={{ width: "100%", padding: "0 60px" }}>
+          <div style={{ padding: "50px 0" }}>
             <div style={{ width: "100%" }}>
               <table>
                 <thead>
@@ -75,7 +73,7 @@ export default function Sub01_2() {
                     <tr key={index}>
                       <td>{value.num}</td>
                       <td>{value.type}</td>
-                      <Link to={`/news/${value.id}`}>
+                      <Link to={`/news/relate/${value.id}`}>
                         <td>{value.title}</td>
                       </Link>
                       <td>-</td> {/*파일*/}

@@ -50,7 +50,7 @@ export default function PressView() {
                 color: "grey",
               }}
             >
-              {post.num} | 사무국 | 조회 {post.views}
+              {post.num} | {post.depart} | 조회 {post.views}
             </div>
             <div id="text" style={{ marginTop: "30px", lineHeight: "25px" }}>
               {post.content}

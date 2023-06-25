@@ -2,12 +2,12 @@ import React, { useEffect, useId, useState, createElement } from "react";
 import { fireStore } from "../../Firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
-import "./NewsView.css";
-import "./News.css";
-import SubTop2 from "../../components/sub_top/sub_top2";
-import Category2 from "../../components/category/category2";
+import "./Blog.css";
+import "./BlogView.css";
 import { getStorage, ref, getMetadata } from "firebase/storage";
 import { render } from "react-dom";
+import SubTop5 from "../../components/sub_top/sub_top5";
+import Category5 from "../../components/category/category5";
 
 export default function NewsView() {
   const [post, setPost] = useState([]);
@@ -21,7 +21,7 @@ export default function NewsView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRef = doc(fireStore, "notification", id);
+        const postRef = doc(fireStore, "blog", id);
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
@@ -38,7 +38,6 @@ export default function NewsView() {
   }, [id]);
 
   useEffect(() => {
-    //console.log(image);
     const div = document.getElementById("myimg");
     if (!image) {
     } else {
@@ -67,9 +66,9 @@ export default function NewsView() {
   };
   return (
     <div>
-      <SubTop2 />
+      <SubTop5 />
       <div style={{ display: "flex" }}>
-        <Category2 />
+        <Category5 />
         <div style={{ width: "100%", padding: "50px 60px" }}>
           <div style={{ border: "1px solid grey", padding: "20px 20px" }}>
             <div>{post.title}</div>
@@ -82,7 +81,7 @@ export default function NewsView() {
                 color: "grey",
               }}
             >
-              {post.num} | {post.type} | {post.writter} | 조회 {post.views}
+              {post.num} | {post.writter} | 조회 {post.views}
             </div>
             <div
               id="text"

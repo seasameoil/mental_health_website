@@ -16,7 +16,7 @@ export default function Nav(props) {
 
   const handleLogin = () => {
     alert("로그인이 필요한 페이지 입니다.");
-    document.location.href = "/login";
+    document.location.href = "/";
   };
 
   const handleLogout = () => {};
@@ -137,7 +137,15 @@ export default function Nav(props) {
                         to="/news/sub01/1/write"
                         onClick={isLogin ? handleLogout : handleLogin}
                       >
-                        공지사항 글작성
+                        학회 공지사항 글작성
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/news/sub01/2/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        관련 공지사항 글작성
                       </Link>
                     </li>
                     <li>

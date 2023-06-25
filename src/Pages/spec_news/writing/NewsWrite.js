@@ -18,6 +18,7 @@ import {
   listAll,
 } from "firebase/storage";
 
+//공지사항 게시판
 export default function NewsWrite() {
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
@@ -117,7 +118,7 @@ export default function NewsWrite() {
       });
     };
     fetchData();
-    console.log(num);
+    //console.log(num);
   }, [q]);
 
   const handleSubmit = async (e) => {

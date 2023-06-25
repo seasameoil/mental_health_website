@@ -61,7 +61,7 @@ export default function NewsWrite() {
       });
     };
     fetchData();
-    console.log(num);
+    //console.log(num);
   }, [q]);
 
   const handleSubmit = async (e) => {

@@ -21,8 +21,8 @@ function App() {
 
   return (
     <>
-      <Nav />
-      <AppRouter isLogin={isLogin} />
+      <Nav isLogin={isLogin} />
+      <AppRouter />
       <Footer />
     </>
   );

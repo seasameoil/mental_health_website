@@ -2,7 +2,25 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Nav() {
+export default function Nav(props) {
+  const isLogin = props.isLogin;
+
+  const onLogout = () => {
+    sessionStorage.removeItem("userId");
+    document.location.href = "/";
+  };
+
+  const onLogIn = () => {
+    document.location.href = "/login";
+  };
+
+  const handleLogin = () => {
+    alert("로그인이 필요한 페이지 입니다.");
+    document.location.href = "/login";
+  };
+
+  const handleLogout = () => {};
+
   return (
     <div className="nav_container">
       <div className="container">
@@ -110,7 +128,43 @@ export default function Nav() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login">로그인</Link>
+                  <Link to="/login" onClick={isLogin ? onLogout : onLogIn}>
+                    {isLogin ? "로그아웃" : "로그인"}
+                  </Link>
+                  <ul>
+                    <li>
+                      <Link
+                        to="/news/sub01/1/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        공지사항 글작성
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/news/sub01/3/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        보도자료 글작성
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/news/sub03/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        보도자료 글작성
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/blog/write"
+                        onClick={isLogin ? handleLogout : handleLogin}
+                      >
+                        블로그 글작성
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>

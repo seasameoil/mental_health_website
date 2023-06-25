@@ -38,13 +38,6 @@ export default function BlogWrite() {
     limit(1)
   );
 
-  useEffect(() => {
-    console.log();
-    /*if (isLogin == false) {
-      window.location.href = "/";
-    }*/
-  }, []);
-
   const handleTitle = (event) => {
     const {
       target: { value },

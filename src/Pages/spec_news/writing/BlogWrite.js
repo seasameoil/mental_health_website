@@ -135,7 +135,6 @@ export default function BlogWrite() {
   };
 
   return (
-<<<<<<< HEAD
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
     <div className='writingForm'>
       <div className='writingTitle'>
@@ -174,50 +173,6 @@ export default function BlogWrite() {
         <button onClick={handleSubmit}>등록</button>
       </div>
     </div>
-=======
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div className="writingForm">
-        <div>
-          제목
-          <input value={title} onChange={handleTitle}></input>
-        </div>
-        <div>
-          내용
-          <textarea value={content} onChange={handleContents}></textarea>
-        </div>
-        <div>
-          작성자
-          <input value={writter} onChange={handleWritter}></input>
-        </div>
-        <div>
-          <input
-            type="file"
-            onChange={(event) => {
-              setImageUpload(event.target.files[0]);
-            }}
-          />
-          <button onClick={handleImage}>이미지 업로드</button>
-        </div>
-        <div>
-          <input
-            type="file"
-            onChange={(event) => {
-              setFileUpload(event.target.files[0]);
-            }}
-          />
-          <button onClick={handleFile}>파일 업로드</button>
-        </div>
-        <div>
-          <button onClick={handleSubmit}>등록</button>
-        </div>
-      </div>
->>>>>>> 241a354d11a2df1bd4155f6f09fdf12fbd4d6e1c
     </div>
   );
 }

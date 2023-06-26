@@ -74,9 +74,9 @@ export default function Sub01_2() {
                       <td>{value.num}</td>
                       <td>{value.type}</td>
                       <Link to={`/news/relate/${value.id}`}>
-                        <td>{value.title}</td>
+                        <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
-                      <td>-</td> {/*파일*/}
+                      <td>{value.fileList.length > 0 && <img src="/img/fileImg.jpg" style={{width: '15px', height: '15px'}}/>}</td> {/*파일*/}
                       <td>{value.writter}</td>
                       <td>{value.uploadTime.toDate().toLocaleDateString()}</td>
                       <td>{value.views}</td>
@@ -84,6 +84,12 @@ export default function Sub01_2() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="writingIcon" style={{marginTop: '20px', display: 'flex', justifyContent: 'flex-end'}}>
+              <Link to="/news/sub01/2/write">
+                <button style={{background: 'rgb(117, 117, 117)', border: 'none', color: 'white', width: '80px', height: '30px', borderRadius: '10px', cursor: 'pointer'}}>글쓰기</button>
+              </Link>
             </div>
 
             <div className="board_pagination">

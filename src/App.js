@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <Nav isLogin={isLogin} />
-      <AppRouter />
+      <AppRouter isLogin={isLogin} />
       <Footer />
     </>
   );

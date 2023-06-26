@@ -1,5 +1,6 @@
 import "./writing.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Timestamp,
   query,
@@ -19,7 +20,15 @@ import {
 } from "firebase/storage";
 
 //공지사항 게시판
-export default function NewsWrite() {
+export default function NewsWrite({isLogin}) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogin) {
+      alert("로그인이 필요한 페이지입니다.");
+      navigate('/login')
+    }
+  })
+
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");

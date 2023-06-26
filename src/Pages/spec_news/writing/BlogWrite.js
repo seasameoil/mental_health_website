@@ -1,4 +1,5 @@
 import "./writing.css";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   Timestamp,
@@ -19,7 +20,14 @@ import {
 } from "firebase/storage";
 
 //블로그게시판
-export default function BlogWrite() {
+export default function BlogWrite({isLogin}) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogin) {
+      alert("로그인이 필요한 페이지입니다.");
+      navigate('/login')
+    }
+  })
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");
@@ -127,7 +135,7 @@ export default function BlogWrite() {
         fileList: fileList,
       });
       //setContent(docRef);
-      window.location.href = "/journal/blog";
+      navigate("/journal/blog");
     } catch (error) {
       alert(error);
       console.log(error);
@@ -135,48 +143,44 @@ export default function BlogWrite() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div className="writingForm">
-        <div>
-          제목
-          <input value={title} onChange={handleTitle}></input>
-        </div>
-        <div>
-          내용
-          <textarea value={content} onChange={handleContents}></textarea>
-        </div>
-        <div>
-          작성자
-          <input value={writter} onChange={handleWritter}></input>
-        </div>
-        <div>
-          <input
-            type="file"
-            onChange={(event) => {
-              setImageUpload(event.target.files[0]);
-            }}
-          />
-          <button onClick={handleImage}>이미지 업로드</button>
-        </div>
-        <div>
-          <input
-            type="file"
-            onChange={(event) => {
-              setFileUpload(event.target.files[0]);
-            }}
-          />
-          <button onClick={handleFile}>파일 업로드</button>
-        </div>
-        <div>
-          <button onClick={handleSubmit}>등록</button>
-        </div>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <div className='writingForm'>
+      <div className='writingTitle'>
+        <label>제목</label>
+        <input value={title} onChange={handleTitle}></input>
       </div>
+      <div className='writingContent'>
+      <label>내용</label>
+        <textarea value={content} onChange={handleContents}></textarea>
+      </div>
+      <div className='writingWriter'>
+        <label>작성자</label>
+        <input value={writter} onChange={handleWritter}></input>
+      </div>
+      <div className='writingImg'>
+        <label>이미지 업로드</label>
+        <input
+          type="file"
+          onChange={(event) => {
+            setImageUpload(event.target.files[0]);
+          }}
+        />
+        <button className='uploadBtn' onClick={handleImage}>이미지 업로드</button>
+      </div>
+      <div className='writingFile'>
+        <label>파일 업로드</label>
+        <input
+          type="file"
+          onChange={(event) => {
+            setFileUpload(event.target.files[0]);
+          }}
+        />
+        <button className='uploadBtn' onClick={handleFile}>파일 업로드</button>
+      </div>
+      <div className='postArticleBtn'>
+        <button onClick={handleSubmit}>등록</button>
+      </div>
+    </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import "./Nav.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Nav(props) {
@@ -13,13 +13,6 @@ export default function Nav(props) {
   const onLogIn = () => {
     //document.location.href = "/login";
   };
-
-  const handleLogin = () => {
-    alert("로그인이 필요한 페이지 입니다.");
-    window.location.href = "/";
-  };
-
-  const handleLogout = () => {};
 
   return (
     <div className="nav_container">
@@ -118,14 +111,9 @@ export default function Nav(props) {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/journal/sub01/1" style={{ fontWeight: "bold" }}>
+                  <Link to="/journal/blog" style={{ fontWeight: "bold" }}>
                     블로그
                   </Link>
-                  <ul>
-                    <li>
-                      <Link to="/journal/blog">블로그</Link>
-                    </li>
-                  </ul>
                 </li>
                 <li>
                   <Link to="/nonMember/sub01/1" style={{ fontWeight: "bold" }}>
@@ -133,52 +121,16 @@ export default function Nav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login" onClick={isLogin ? onLogout : onLogIn}>
+                  <Link to="/login" style={{ fontWeight: "bold", color: 'orange', width: '70px' }} onClick={isLogin ? onLogout : onLogIn}>
                     {isLogin ? "로그아웃" : "로그인"}
                   </Link>
-                  <ul>
-                    <li>
-                      <Link
-                        to="/news/sub01/1/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        학회 공지사항 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub01/2/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        관련 공지사항 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub01/3/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        보도자료 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/news/sub03/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        홍보게시판 글작성
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/blog/write"
-                        onClick={isLogin ? handleLogout : handleLogin}
-                      >
-                        블로그 글작성
-                      </Link>
-                    </li>
-                  </ul>
                 </li>
+
+
+                  <Link to="/intro" style={{ fontWeight: "bold", color: 'orange', width: '50px' }}>
+                    INTRO
+                  </Link>
+
               </ul>
             </div>
           </div>

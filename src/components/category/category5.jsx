@@ -9,21 +9,10 @@ export default function Category5() {
       <hr></hr>
 
       <ul>
-        <Link to={"/journal/sub01/1"}>
-          <div className="subtitle">협회지</div>
-        </Link>
-        <div className="sub-category-box">
-          {/*<Link to={"/education/sub01/1"}>
-                            <li className='sub-category'>우울증</li>
-                        </Link>
-                        */}
-        </div>
-      </ul>
-
-      <ul>
         <Link to={"/journal/blog"}>
           <div className="subtitle">블로그</div>
         </Link>
+
       </ul>
     </div>
   );

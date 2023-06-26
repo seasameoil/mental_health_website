@@ -54,7 +54,7 @@ export default function Sub01_4() {
           }}
         >
           <div>
-            {articles.map((article, index) => (
+            {articles.slice(startIndex, endIndex).map((article, index) => (
               <div className="news_item_container" key={index}>
                 <div>{article.company}</div>
                 <a href={article.link} target="_blank" rel="noreferrer">

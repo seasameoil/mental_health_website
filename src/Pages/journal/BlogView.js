@@ -21,7 +21,7 @@ export default function NewsView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRef = doc(fireStore, "blog", id);
+        const postRef = doc(fireStore, "/blog", id);
         const snapShot = await getDoc(postRef);
 
         setPost(snapShot.data());
@@ -36,15 +36,6 @@ export default function NewsView() {
     };
     fetchData();
   }, [id]);
-
-  useEffect(() => {
-    const div = document.getElementById("myimg");
-    if (!image) {
-    } else {
-      const elem = createElement("img", { src: `${image}` });
-      render(elem, div);
-    }
-  });
 
   useEffect(() => {
     files.forEach((item) => {
@@ -64,6 +55,7 @@ export default function NewsView() {
   const goBack = () => {
     navigate(-1);
   };
+
   return (
     <div>
       <SubTop5 />
@@ -92,11 +84,16 @@ export default function NewsView() {
             >
               {post.content}
             </div>
-            <div id="myimg"></div>
-          </div>
-          <div>
+            
+            <div id="myimg">
+              {Array.isArray(image) && image.length != 0 && <img src={image} style={{ width: "100%", height: "100%" }} />}
+            </div>
+
+            <div style={{marginTop: '60px'}}>
+              첨부파일
             {fileName.map((value, index) => (
               <button
+                className="fileListBtn"
                 onClick={() => {
                   handleFile(index);
                 }}
@@ -106,6 +103,9 @@ export default function NewsView() {
               </button>
             ))}
           </div>
+
+          </div>
+          
           <div
             style={{
               display: "flex",

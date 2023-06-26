@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Router, Routes } from "react-router-dom";
 
 //Home
+import Intro from "./Pages/home/intro";
 import Home from "./Pages/home/home";
 //(1) 협회 소개
 import Sub01_1_intro from "./Pages/introduce/Sub01_1_intro";
@@ -40,7 +41,6 @@ import Sub02_2_info from "./Pages/information/Sub02_2_info";
 import Sub01_1_edu from "./Pages/education/Sub01_1_edu";
 import Sub04_1_edu from "./Pages/education/Sub04_1_edu";
 //(5)협회지 및 블로그
-import Sub01_1_journal from "./Pages/journal/Sub01_1_journal";
 import BlogView from "./Pages/journal/BlogView";
 import BlogList from "./Pages/journal/BlogList";
 //(6)비회원선정
@@ -54,11 +54,13 @@ import PressWrite from "./Pages/spec_news/writing/PressWrite";
 import PromoWrite from "./Pages/spec_news/writing/PromoWrite";
 import BlogWrite from "./Pages/spec_news/writing/BlogWrite";
 
-const AppRouter = () => {
+const AppRouter = (props) => {
+  const isLogin = props.isLogin;
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/intro" element={<Intro />} />
       </Routes>
 
       <Routes>
@@ -82,23 +84,23 @@ const AppRouter = () => {
 
       <Routes>
         <Route path="/news/:id" element={<NewsView />} />
-        <Route path="/news/sub01/1" element={<Sub01_1 />} />
+        <Route path="/news/sub01/1" element={<Sub01_1 isLogin={isLogin}/>} />
         <Route path="/news/relate/:id" element={<RelateView />} />
-        <Route path="/news/sub01/2" element={<Sub01_2 />} />
+        <Route path="/news/sub01/2" element={<Sub01_2 isLogin={isLogin} />} />
         <Route path="/news/press/:id" element={<PressView />} />
-        <Route path="/news/sub01/3" element={<Sub01_3 />} />
-        <Route path="/news/sub01/4" element={<Sub01_4 />} />
+        <Route path="/news/sub01/3" element={<Sub01_3 isLogin={isLogin} />} />
+        <Route path="/news/sub01/4" element={<Sub01_4 isLogin={isLogin} />} />
         <Route path="/news/sub02" element={<Sub02 />} />
         <Route path="/news/promo/:id" element={<PromoView />} />
-        <Route path="/news/sub03" element={<Sub03 />} />
+        <Route path="/news/sub03" element={<Sub03 isLogin={isLogin} />} />
       </Routes>
 
       <Routes>
-        <Route path="/news/sub01/1/write" element={<NewsWrite />} />
-        <Route path="/news/sub01/2/write" element={<RelateWrite />} />
-        <Route path="/news/sub01/3/write" element={<PressWrite />} />
-        <Route path="/news/sub03/write" element={<PromoWrite />} />
-        <Route path="/blog/write" element={<BlogWrite />} />
+        <Route path="/news/sub01/1/write" element={<NewsWrite isLogin={isLogin} />} />
+        <Route path="/news/sub01/2/write" element={<RelateWrite isLogin={isLogin} />} />
+        <Route path="/news/sub01/3/write" element={<PressWrite isLogin={isLogin} />} />
+        <Route path="/news/sub03/write" element={<PromoWrite isLogin={isLogin} />} />
+        <Route path="/blog/write" element={<BlogWrite isLogin={isLogin} />} />
       </Routes>
 
       <Routes>
@@ -113,7 +115,6 @@ const AppRouter = () => {
       </Routes>
 
       <Routes>
-        <Route path="/journal/sub01/1" element={<Sub01_1_journal />} />
         <Route path="/journal/blog" element={<BlogList />} />
         <Route path="/journal/blog/:id" element={<BlogView />} />
       </Routes>

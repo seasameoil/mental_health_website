@@ -24,3 +24,7 @@
 .sub02_news td:nth-child(7) {
     text-align: center;
 }
+
+.sub02_news .title-cell {
+    display: block;
+  }

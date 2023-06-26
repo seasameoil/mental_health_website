@@ -1,5 +1,6 @@
 import './writing.css'
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   Timestamp,
   query,
@@ -19,7 +20,14 @@ import {
 } from "firebase/storage";
 
 //홍보게시판
-export default function NewsWrite() {
+export default function NewsWrite({isLogin}) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogin) {
+      alert("로그인이 필요한 페이지입니다.");
+      navigate('/login')
+    }
+  })
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");
@@ -127,6 +135,7 @@ export default function NewsWrite() {
         fileList: fileList,
       });
       //setContent(docRef);
+      window.location.href = "/news/sub03";
     } catch (error) {
       alert(error);
       console.log(error);
@@ -136,37 +145,39 @@ export default function NewsWrite() {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
     <div className="writingForm">
-      <div>
-        제목
+      <div className='writingTitle'>
+        <label>제목</label>
         <input value={title} onChange={handleTitle}></input>
       </div>
-      <div>
-        내용
+      <div className='writingContent'>
+        <label>내용</label>
         <textarea value={content} onChange={handleContents}></textarea>
       </div>
-      <div>
-        작성자
+      <div className='writingWriter'>
+        <label>작성자</label>
         <input value={writter} onChange={handleWritter}></input>
       </div>
-      <div>
+      <div className='writingImg'>
+        <label>이미지 업로드</label>
         <input
           type="file"
           onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }}
         />
-        <button onClick={handleImage}>이미지 업로드</button>
+        <button className='uploadBtn' onClick={handleImage}>이미지 업로드</button>
       </div>
-      <div>
+      <div className='writingFile'>
+        <label>파일 업로드</label>
         <input
           type="file"
           onChange={(event) => {
             setFileUpload(event.target.files[0]);
           }}
         />
-        <button onClick={handleFile}>파일 업로드</button>
+        <button className='uploadBtn' onClick={handleFile}>파일 업로드</button>
       </div>
-      <div>
+      <div className='postArticleBtn'>
         <button onClick={handleSubmit}>등록</button>
       </div>
     </div>

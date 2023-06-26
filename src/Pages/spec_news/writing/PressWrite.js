@@ -1,5 +1,6 @@
 import './writing.css'
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   Timestamp,
   query,
@@ -12,7 +13,15 @@ import {
 import { fireStore } from "../../../Firebase";
 
 //보도자료
-export default function NewsWrite() {
+export default function NewsWrite({isLogin}) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogin) {
+      alert("로그인이 필요한 페이지입니다.");
+      navigate('/login')
+    }
+  })
+
   const [title, setTitle] = useState("");
   const [num, setNum] = useState("");
   const [content, setContent] = useState("");
@@ -87,23 +96,23 @@ export default function NewsWrite() {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
     <div className="writingForm">
-      <div>
-        제목
+      <div className='writingTitle'>
+        <label>제목</label>
         <input value={title} onChange={handleTitle}></input>
       </div>
-      <div>
-        내용
+      <div className='writingContent'>
+        <label>내용</label>
         <textarea value={content} onChange={handleContents}></textarea>
       </div>
-      <div>
-        부서
+      <div className='writingWriter'>
+        <label>부서</label>
         <input value={depart} onChange={handleDepart}></input>
       </div>
-      <div>
-        문의
+      <div className='writingWriter'>
+        <label>문의</label>
         <input value={ask} onChange={handleAsk}></input>
       </div>
-      <div>
+      <div className='postArticleBtn'>
         <button onClick={handleSubmit}>등록</button>
       </div>
     </div>

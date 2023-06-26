@@ -25,7 +25,7 @@ export default function Sub01_1(props) {
   useEffect(() => {
     //console.log(fireStore);
     const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
+      const data = await getDocs(q);
       setUsers(
         data.docs.map((doc) => ({
           ...doc.data(),

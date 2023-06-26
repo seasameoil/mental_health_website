@@ -115,14 +115,6 @@ export default function Intro() {
     }
     return _dates;
   }
-  
-  const dot_style = (color) => ({
-    width: '4px',
-    height: '4px',
-    backgroundColor: color,
-    borderRadius: '50%',
-    marginLeft: '0.063rem',
-  });
 
   return (
     <div className="home_container">

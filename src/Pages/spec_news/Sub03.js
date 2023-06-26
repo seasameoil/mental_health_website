@@ -12,9 +12,8 @@ import Category2 from "../../components/category/category2";
 export default function Sub03() {
   const [promos, setPromos] = useState([]);
   const promosRef = collection(fireStore, "promo");
-  {
-    /*수정해야 함*/
-  }
+  
+  console.log(promosRef)
   const q = query(promosRef, orderBy("num", "desc"));
 
   const uniqueId = useId();
@@ -23,7 +22,7 @@ export default function Sub03() {
   useEffect(() => {
     //console.log(fireStore);
     const getPromos = async () => {
-      const data = await getDocs(promosRef);
+      const data = await getDocs(q);
       setPromos(
         data.docs.map((doc) => ({
           ...doc.data(),

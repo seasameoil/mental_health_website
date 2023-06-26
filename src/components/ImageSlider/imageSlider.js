@@ -32,7 +32,7 @@ export default function ImageSlider({ images }) {
         <div style={{padding: '0px 60px', display: 'flex', justifyContent: 'center'}}>
             <button className="nextBtn" onClick={handlePrevious}>&lt;</button>
             <div>
-                <img src={images[currentImageIndex]} alt="slide" style={{width: '1200px', height: '600px'}} />
+                <img src={images[currentImageIndex]} alt="slide" style={{width: '100%', height: 'auto'}} />
             </div>
             <button className="nextBtn" onClick={handleNext}>&gt;</button>
         </div>

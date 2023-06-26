@@ -48,6 +48,7 @@ export default function Sub03() {
     //console.log(pageNumber)
   };
 
+  console.log(promos)
   return (
     <div className="sub02_news">
       <SubTop2 />
@@ -76,7 +77,7 @@ export default function Sub03() {
                       <Link to={`/news/promo/${value.id}`}>
                         <td className="title-cell" style={{textAlign: 'left'}}>{value.title}</td>
                       </Link>
-                      <td>{value.fileList.length > 0 && <img src="/img/fileImg.jpg" style={{width: '15px', height: '15px', display: 'block', margin: '0 auto'}} />}</td> {/*파일*/}
+                      <td>{value.fileList && value.fileList.length > 0 && <img src="/img/fileImg.jpg" style={{width: '15px', height: '15px', display: 'block', margin: '0 auto'}} />}</td> {/*파일*/}
                       <td>{value.writter}</td>
                       <td>{value.uploadTime.toDate().toLocaleDateString()}</td>
                       <td>{value.views}</td>

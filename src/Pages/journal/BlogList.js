@@ -12,9 +12,6 @@ import SubTop5 from "../../components/sub_top/sub_top5";
 export default function Sub01_1() {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(fireStore, "blog");
-  {
-    /*수정해야 함*/
-  }
   const q = query(usersCollectionRef, orderBy("num", "desc"));
 
   const uniqueId = useId();
@@ -23,7 +20,7 @@ export default function Sub01_1() {
   useEffect(() => {
     //console.log(fireStore);
     const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
+      const data = await getDocs(q);
       setUsers(
         data.docs.map((doc) => ({
           ...doc.data(),
